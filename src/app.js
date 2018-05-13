@@ -1,8 +1,10 @@
 const Koa = require('koa');
 const router = require('../router');
+const koaBody = require('koa-body');
 const config = require('../config/conf.local');
 
 const app = new Koa();
+app.use(koaBody());
 app.use(async (ctx,next) => {
   ctx.config = config;
   await next();

@@ -4,16 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon src/app.js"
+    "dev": "NODE_ENV=development nodemon src/app.js",
+    "start": "NODE_ENV=production pm2 start src/app.js --name site"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.4",
+    "pm2": "^2.10.3"
   },
   "dependencies": {
     "koa": "^2.5.1",
+    "koa-body": "^2.5.0",
     "koa-router": "^7.4.0"
   }
 }
