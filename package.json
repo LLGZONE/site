@@ -8,21 +8,29 @@
     "type": "git"
   },
   "scripts": {
-    "dev": "NODE_ENV=development nodemon src/app.js",
-    "start": "NODE_ENV=production pm2 start src/app.js --name site",
+    "dev": "NODE_ENV=development nodemon server/app.js",
+    "start": "NODE_ENV=production pm2 start server/app.js --name site",
+    "build": "rm -rf dist && parcel build client/index.html --no-cache --no-minify -d dist/ --public-url /",
     "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "nodemon": "^1.17.4",
+    "parcel": "^1.8.1",
+    "parcel-bundler": "^1.8.1",
     "pm2": "^2.10.3"
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   }
 }

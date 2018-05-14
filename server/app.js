@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const koaBody = require('koa-body');
 const cors = require('@koa/cors');
-const router = require('../router');
+const router = require('./router');
 
 const config = process.env.NODE_ENV === 'development' ? require('../config/conf.local') : require('../config/conf.prod');
 
