@@ -1,11 +1,7 @@
 const Router = require('koa-router');
 const router = new Router();
+const indexController = require('../controller/indexController');
 
-router.get('/hello', async (ctx,next) => {
-  ctx.body = 'hello';
-})
-router.post('/hooks', async (ctx,next) => {
-  console.log('hook info:', ctx.body);
-});
+router.get('/', indexController.index);
 
 module.exports = router;

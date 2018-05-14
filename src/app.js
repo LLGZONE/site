@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const router = require('../router');
 const koaBody = require('koa-body');
-const config = require('../config/conf.local');
+const config = process.env.NODE_ENV === 'development' ? require('../config/conf.local') : require('../config/conf.prod');
 
 const app = new Koa();
 app.use(koaBody());
