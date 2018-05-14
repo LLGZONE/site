@@ -1,9 +1,12 @@
 const Koa = require('koa');
-const router = require('../router');
 const koaBody = require('koa-body');
+const cors = require('@koa/cors');
+const router = require('../router');
+
 const config = process.env.NODE_ENV === 'development' ? require('../config/conf.local') : require('../config/conf.prod');
 
 const app = new Koa();
+app.use(cors());
 app.use(koaBody());
 app.use(async (ctx,next) => {
   ctx.config = config;

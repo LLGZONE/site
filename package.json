@@ -20,6 +20,7 @@
     "pm2": "^2.10.3"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",
     "koa-router": "^7.4.0"
