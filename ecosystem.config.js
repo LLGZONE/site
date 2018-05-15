@@ -15,6 +15,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'https://github.com/hardfist/site',
       path : '/home/yj/site',
+      "pre-deploy": "git fetch --all",
       "post-deploy" : "npm install && pm2 startOrRestart ecosystem.config.js --env production"
     }
   }
