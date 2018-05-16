@@ -6,10 +6,20 @@ module.exports = {
         username
       }
     })
-    console.log('result:', result);
-    await next();
+    console.log('result2:', result);
+    if(result){
+      return ctx.fail();
+    }else {
+      ctx.models.User.create(
+        {
+          username, 
+          password
+        }
+      )
+    }
+    ctx.success(result);
   },
   async signin(ctx,next){
-
+    await next;
   }
 };

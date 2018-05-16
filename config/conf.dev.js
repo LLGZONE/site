@@ -1,5 +1,9 @@
 module.exports = {
-  server_port: 3333,
+  env: 'dev',
+  server: {
+    host: 'http://127.0.0.1',
+    port: 3333
+  },
   db: {
     database: 'site',
     username: 'yj',

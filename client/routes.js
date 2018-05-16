@@ -20,7 +20,7 @@ export default [
   },
   {
     name: 'sign',
-    path: '/sign',
+    path: '/sign/:type?',
     component: Loadable({
       loader: () => import('./containers/sign'),
       loading: Loading

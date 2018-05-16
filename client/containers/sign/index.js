@@ -1,6 +1,7 @@
 import React from "react";
-import { Input, Button } from "antd";
+import { Button } from 'antd';
 import http from "../../lib/fetch";
+import URL from '../../constants/url';
 export default class Sign extends React.Component {
   constructor(props) {
     super(props);
@@ -8,20 +9,37 @@ export default class Sign extends React.Component {
       username: "",
       password: ""
     };
+    const { match } = this.props;
+  }
+  get sign_type() {
+    const { match } = this.props;
+    return match.params.type || 'signin';
   }
   signup = () => {
     const { username, password } = this.state;
     http({
-      method
-    });
+      method: 'POST',
+      url: this.sign_type === 'signup' ?  URL.signup : URL.signin,
+      data: {
+        username,
+        password
+      }
+    }).then(() => {
+      
+    })
   };
+  update = (key,e) => {
+    this.setState({
+      [key]: e.target.value
+    })
+  }
   render() {
     const { username, password } = this.state;
     return (
       <div className="sigin-container">
-        <Input placeholder="username" value={username} />
-        <Input placeholder="password" value={password} />
-        <Button onClick={this.signup}>Submit</Button>
+        <input placeholder="username" value={username} onChange={this.update.bind(this, 'username')} />
+        <input placeholder="password" value={password} onChange={this.update.bind(this, 'password')} />
+        <button onClick={this.signup}>{this.sign_type}</button>
       </div>
     );
   }
