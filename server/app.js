@@ -32,14 +32,14 @@ app.use(async (ctx, next) => {
   const connection = client.sync();
   ctx.models = models;
   ctx.client = client;
-  ctx.success = (data) => {
+  ctx.success = (data = {}) => {
     ctx.body = {
       code: 0,
       message: 'success',
       data
     }
   }
-  ctx.fail = (code = 1,message = 'fail') => {
+  ctx.fail = (message = 'fail', code = -1) => {
     ctx.body = {
       code,
       message,

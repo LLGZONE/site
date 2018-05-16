@@ -1,7 +1,9 @@
 import React from "react";
-import { Button } from 'antd';
 import http from "../../lib/fetch";
-import URL from '../../constants/url';
+import URL from "../../constants/url";
+import { Button, Input, message } from "antd";
+import Layout from '../../components/layout';
+import "./index.less";
 export default class Sign extends React.Component {
   constructor(props) {
     super(props);
@@ -13,34 +15,82 @@ export default class Sign extends React.Component {
   }
   get sign_type() {
     const { match } = this.props;
-    return match.params.type || 'signin';
+    return match.params.type || "signin";
   }
   signup = () => {
     const { username, password } = this.state;
     http({
-      method: 'POST',
-      url: this.sign_type === 'signup' ?  URL.signup : URL.signin,
+      method: "POST",
+      url: URL.signup,
       data: {
         username,
         password
       }
-    }).then(() => {
-      
-    })
+    }).then(
+      () => {
+        message.success("注册成功,请登录");
+        setTimeout(() => {
+          location.href = "/signin";
+        }, 1000);
+      },
+      err => {
+        message.error("注册失败:", err.message);
+      }
+    );
   };
-  update = (key,e) => {
+  signin = () => {
+    const { username, password } = this.state;
+    http({
+      method: "POST",
+      url: URL.signin,
+      data: {
+        username,
+        password
+      }
+    }).then(
+      () => {
+        message.success("登录成功");
+        setTimeout(() => {
+          location.href = "/admin";
+        }, 1000);
+      },
+      err => {
+        message.error("登录失败");
+      }
+    );
+  };
+  update = (key, e) => {
     this.setState({
       [key]: e.target.value
-    })
-  }
+    });
+  };
   render() {
     const { username, password } = this.state;
     return (
-      <div className="sigin-container">
-        <input placeholder="username" value={username} onChange={this.update.bind(this, 'username')} />
-        <input placeholder="password" value={password} onChange={this.update.bind(this, 'password')} />
-        <button onClick={this.signup}>{this.sign_type}</button>
-      </div>
+      <Layout>
+        <div className="sign-container">
+          <div className="form-container">
+            <Input
+              placeholder="username"
+              className="username"
+              value={username}
+              onChange={this.update.bind(this, "username")}
+            />
+            <Input
+              placeholder="password"
+              className="password"
+              value={password}
+              onChange={this.update.bind(this, "password")}
+            />
+            <Button
+              className="submit-btn"
+              onClick={this.sign_type === "signup" ? this.signup : this.signin}
+            >
+              {this.sign_type}
+            </Button>
+          </div>
+        </div>
+      </Layout>
     );
   }
 }

@@ -20,7 +20,7 @@ export default [
   },
   {
     name: 'sign',
-    path: '/sign/:type?',
+    path: '/:type(signin|signup)',
     component: Loadable({
       loader: () => import('./containers/sign'),
       loading: Loading
