@@ -1,27 +1,39 @@
-const Koa = require('koa');
-const koaBody = require('koa-body');
-const cors = require('@koa/cors');
-const router = require('./router');
-const static = require('./middleware/static');
-
-const config = process.env.NODE_ENV === 'development' ? require('../config/conf.local') : require('../config/conf.prod');
-
+const Koa = require("koa");
+const koaBody = require("koa-body");
+const cors = require("@koa/cors");
+const path = require("path");
+const logger = require('koa-logger');
+const session = require('koa-session');
+const router = require("./router");
+const static = require("./middleware/static");
+const { client, models } = require("./db");
+const config = require("../config");
 const app = new Koa();
-
-app.use(async (ctx,next) => {
-  ctx.config = config;
-  ctx.env = process.env.NODE_ENV;
-  ctx.isDev = process.env.NODE_ENV === 'development';
-  await next();
-})
-
 
 static(app);
 app.use(cors());
 app.use(koaBody());
+app.use(logger());
+app.keys = ['secret key'];
+const session_config = {
+  key: 'koa:sess', 
+  maxAge: 86400000,
+  overwrite: true, 
+  httpOnly: true,
+  signed: true, 
+  rolling: false, 
+  renew: false
+}
+app.use(session(session_config, app));
 app.use(router.routes()).use(router.allowedMethods());
 
-
-app.listen(config.server_port || 3333, () => {
-  console.log('start server at port: ', config.server_port)
-})
+(async function() {
+  const connection = await client.sync();
+  app.use((ctx,next)=> {
+    ctx.models = models;
+    ctx.client = client;
+  })
+  app.listen(config.server_port || 3333, () => {
+    console.log("start server at port: ", config.server_port);
+  });
+})();
