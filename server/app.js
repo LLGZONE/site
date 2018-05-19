@@ -2,13 +2,17 @@ const Koa = require("koa");
 const koaBody = require("koa-body");
 const cors = require("@koa/cors");
 const path = require("path");
+const Loader = require('./loader');
 const logger = require("koa-logger");
 const session = require("koa-session");
 const errorHandle = require('./middleware/errorHandler');
 const router = require("./router");
+const services = require('./service');
 const { client, models } = require("./db");
 const config = require("../config");
 const app = new Koa();
+const loader = new Loader(app);
+loader.loadService();
 app.use(errorHandle);
 app.on('error', (err) => {
   console.log('err:', err);

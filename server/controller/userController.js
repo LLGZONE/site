@@ -1,3 +1,4 @@
+// @ts-check
 module.exports = {
   async user_info(ctx,next){
     const username = ctx.session.username;
@@ -7,12 +8,8 @@ module.exports = {
   },
   async signup(ctx, next) {
     const { username, password } = ctx.request.body;
-    const result = await ctx.models.User.findOne({
-      where: {
-        username
-      }
-    })
-    if(result){
+    const result = await ctx.service.user.getUserByLoginName(username);
+    if(result) {
       return ctx.fail('用户已经存在');
     }else {
       ctx.models.User.create(
@@ -26,17 +23,12 @@ module.exports = {
   },
   async signin(ctx,next){
     const { username, password } = ctx.request.body;
-    const result = await ctx.models.User.findOne({
-      where: {
-        username
-      }
-    })
+    const result = await ctx.service.user.getUserByLoginName(username);
+    console.log('result:',result);
     if(password !== result.password){
       return ctx.fail('密码不正确');
     }
-    console.log('session:', ctx.session);
     ctx.session.username = username;
-    console.log('session:', ctx.session);
     ctx.success();
   },
   async signout(ctx,next){

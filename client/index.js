@@ -12,7 +12,7 @@ import URL from "./constants/url";
     });
     window.user_info = result;
   } catch (err) {
-    console.log('err:', err);
+    window.user_info = {};
   }
   ReactDOM.render(
     <BrowserRouter>
