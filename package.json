@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development nodemon server/app.js",
+    "start:debug": "NODE_ENV=development node --inspect-brk server/app.js",
     "startfe": "parcel client/index.html -p 4001",
     "start:production": "NODE_ENV=production pm2 start server/app.js --name site",
     "build": "rm -rf dist && webpack --config",
