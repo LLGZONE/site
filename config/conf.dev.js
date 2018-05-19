@@ -10,5 +10,9 @@ module.exports = {
     password: 'yjmima',
     port: '3306',
     host: 'localhost'
+  },
+  redis: {
+    host: 'localhost',
+    port: 6379
   }
 }

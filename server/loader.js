@@ -4,7 +4,6 @@ class Loader {
   }
   loadService() {
     const services = require("./service");
-    console.log('services:', services);
     const app = this.app;
     Object.defineProperty(app.context, "service", {
       get() {

@@ -5,6 +5,8 @@ const path = require("path");
 const Loader = require('./loader');
 const logger = require("koa-logger");
 const session = require("koa-session");
+const redis = require('redis');
+const redisStore = require('koa-redis');
 const errorHandle = require('./middleware/errorHandler');
 const router = require("./router");
 const services = require('./service');
@@ -22,13 +24,7 @@ app.use(koaBody());
 app.use(logger());
 app.keys = ["secret key"];
 const session_config = {
-  key: "koa:sess",
-  maxAge: 86400000,
-  overwrite: true,
-  httpOnly: true,
-  signed: true,
-  rolling: false,
-  renew: false
+  store: redisStore({})
 };
 app.use(session(session_config, app));
 // 扩充context

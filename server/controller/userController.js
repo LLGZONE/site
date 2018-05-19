@@ -24,7 +24,6 @@ module.exports = {
   async signin(ctx,next){
     const { username, password } = ctx.request.body;
     const result = await ctx.service.user.getUserByLoginName(username);
-    console.log('result:',result);
     if(password !== result.password){
       return ctx.fail('密码不正确');
     }
