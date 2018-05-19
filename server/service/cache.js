@@ -1,5 +1,5 @@
 'use strict';
-const Service = require('../base/service');
+const { Service } = require('../core');
 class CacheService extends Service {
   async get(key) {
     const { redis, logger } = this.app;

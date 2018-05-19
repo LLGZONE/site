@@ -1,5 +1,7 @@
-const Koa = require('koa');
-const Loader = require('./loader');
+const Koa = require("koa");
+const Loader = require("./loader");
+const Service = require('./base/service');
+const Controller = require('./base/controller');
 
 class Core extends Koa {
   constructor() {
@@ -12,4 +14,8 @@ class Core extends Koa {
     this.loader.load();
   }
 }
-module.exports = Core;
+module.exports = {
+  Core,
+  Service,
+  Controller
+};

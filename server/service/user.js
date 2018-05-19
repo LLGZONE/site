@@ -1,4 +1,4 @@
-const Service = require("../base/service");
+const { Service } = require('../core');
 class UserService extends Service {
   async getUserByLoginName(username) {
     const user = await this.ctx.models.User.findOne({
