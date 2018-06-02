@@ -6,7 +6,7 @@ export default [
     name: 'admin',
     path: '/admin',
     component: Loadable({
-      loader: () => import('./containers/admin'),
+      loader: () => import(/* webpackChunkName: "admin" */ './containers/admin'),
       loading: Loading
     })
   },
@@ -14,7 +14,7 @@ export default [
     name: 'home',
     path: '/',
     component: Loadable({
-      loader: () => import('./containers/home'),
+      loader: () => import(/* webpackChunkName: "home" */ './containers/home'),
       loading: Loading
     })
   },
@@ -22,7 +22,7 @@ export default [
     name: 'sign',
     path: '/:type(signin|signup)',
     component: Loadable({
-      loader: () => import('./containers/sign'),
+      loader: () => import(/* webpackChunkName: "sign" */ './containers/sign'),
       loading: Loading
     })
   }
