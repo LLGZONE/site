@@ -10,7 +10,7 @@ const errorHandle = require('./middleware/errorHandler');
 const router = require("./router");
 const services = require('./service');
 const { client, models } = require("./db");
-const config = require("../config");
+const config = require("./config");
 const app = new Core();
 app.use(errorHandle);
 app.on('error', (err) => {
@@ -26,7 +26,6 @@ const session_config = {
 app.use(session(session_config, app));
 // 扩充context
 app.use(async (ctx, next) => {
-  const connection = client.sync();
   ctx.models = models;
   ctx.client = client;
   ctx.success = (data = {}) => {

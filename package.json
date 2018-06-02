@@ -8,12 +8,12 @@
     "type": "git"
   },
   "scripts": {
-    "start": "NODE_ENV=development nodemon server/app.js",
-    "startfe": "NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
-    "buildfe": "NODE_ENV=development webpack -p --config webpack.config.prod.js",
-    "start:production": "NODE_ENV=production pm2 start server/app.js --name site",
-    "deploy": "pm2 deploy ecosystem.config.js production",
-    "start:debug": "NODE_ENV=development node --inspect-brk server/app.js"
+    "dev:server": "NODE_ENV=development nodemon server/app.js",
+    "build:server": "NODE_ENV=production babel server -d dist/server",
+    "dev:client": "NODE_ENV=development webpack-dev-server --config client/webpack.config.dev.js",
+    "build:client": "NODE_ENV=production webpack -p --config client/webpack.config.prod.js",
+    "start:production": "NODE_ENV=production pm2 start dist/server/app.js --name site",
+    "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +25,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^3.0.2",

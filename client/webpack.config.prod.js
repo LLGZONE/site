@@ -8,6 +8,6 @@ module.exports = merge(baseConfig, {
     chunkFilename: '[name]-[chunkhash:8].js'
   },
   plugins:[
-    new cleanWebpackPlugin('dist')
+    new cleanWebpackPlugin('dist/client')
   ]
 });

@@ -4,9 +4,10 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: path.resolve(__dirname, 'client'),
+  entry: './index.js',
+  context: __dirname,
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist/client'),
     publicPath: '/',
     filename: '[name].js',
     chunkFilename: '[name].js'
@@ -65,7 +66,7 @@ module.exports = {
       filename: '[name]'
     }),
     new HtmlWebpackPlugin({
-      template: path.join(path.resolve('client', 'index.html'))
+      template: 'index.html'
     })
   ],
   resolve: {

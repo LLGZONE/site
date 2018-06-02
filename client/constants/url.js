@@ -1,4 +1,3 @@
-const config = require('../../config/conf.dev');
 const url = {
   signup: '/api/signup',
   signin: '/api/signin',

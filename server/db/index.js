@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const config = require('../../config');
+const config = require('../config');
 const client = new Sequelize(config.db.database, config.db.username, config.db.password, {
-  host: 'localhost',
+  host: config.db.host,
   dialect: 'mysql',
   pool: {
     max: 5,

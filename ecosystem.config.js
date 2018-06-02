@@ -2,7 +2,7 @@ module.exports = {
   apps : [
     {
       name      : 'site',
-      script    : 'server/app.js',
+      script    : 'dist/server/app.js',
       env_production : {
         NODE_ENV: 'production'
       }
@@ -16,7 +16,7 @@ module.exports = {
       repo : 'https://github.com/hardfist/site',
       path : '/home/yj/site',
       "pre-deploy": "git fetch --all",
-      "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.config.js --env production"
+      "post-deploy" : "npm install && npm run build:client && npm run build:server && pm2 startOrRestart ecosystem.config.js --env production"
     }
   }
 };
