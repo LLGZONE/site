@@ -21,11 +21,3 @@ import URL from "./constants/url";
     document.getElementById("root")
   );
 })();
-if (module.hot) {
-  module.hot.dispose(() => {
-    console.log("module will unmount");
-  });
-  module.hot.accept(() => {
-    console.log("module will update");
-  });
-}

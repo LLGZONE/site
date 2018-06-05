@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: './index.js',
+  entry: './entry.tsx',
   context: __dirname,
   output: {
     path: path.resolve(__dirname, '../dist/client'),

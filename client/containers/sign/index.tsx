@@ -4,14 +4,18 @@ import URL from "../../constants/url";
 import { Button, Input, message } from "antd";
 import Layout from '../../components/layout';
 import "./index.less";
-export default class Sign extends React.Component {
+export default class Sign extends React.Component<{
+  match: any;
+},{
+  username?: string;
+  password?: string;
+}> {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
       password: ""
     };
-    const { match } = this.props;
   }
   get sign_type() {
     const { match } = this.props;
@@ -59,7 +63,7 @@ export default class Sign extends React.Component {
       }
     );
   };
-  update = (key, e) => {
+  update = (key: 'username' | 'password', e) => {
     this.setState({
       [key]: e.target.value
     });

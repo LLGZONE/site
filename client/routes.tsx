@@ -21,6 +21,7 @@ export default [
   {
     name: 'sign',
     path: '/:type(signin|signup)',
+    exact: true,
     component: Loadable({
       loader: () => import(/* webpackChunkName: "sign" */ './containers/sign'),
       loading: Loading

@@ -4,6 +4,11 @@ import http from '../../lib/fetch';
 import { message } from 'antd';
 import './index.less';
 
+declare global {
+  interface Window { 
+    user_info: any
+   }
+}
 export default class Nav extends React.Component {
   logout = () => {
     http({

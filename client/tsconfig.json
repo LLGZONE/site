@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es5",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
     "jsx": "react",
-    "allowJs": true
-  }
+    "module": "esNext",
+    "target": "es2015",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "lib": ["es7", "dom"]
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.d.ts"]
 }
