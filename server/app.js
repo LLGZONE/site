@@ -26,7 +26,6 @@ const session_config = {
 app.use(session(session_config, app));
 // 扩充context
 app.use(async (ctx, next) => {
-  const connection = client.sync();
   ctx.models = models;
   ctx.client = client;
   ctx.success = (data = {}) => {

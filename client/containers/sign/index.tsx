@@ -5,21 +5,23 @@ import { Button, Input, message } from "antd";
 import Layout from '../../components/layout';
 import "./index.less";
 export default class Sign extends React.Component<{
-  match: any;
-},{
-  username?: string;
-  password?: string;
-}> {
+  type?: string;
+}, {
+
+    username?: string;
+    password?: string;
+  }> {
   constructor(props) {
     super(props);
+    console.log('props:', props);
     this.state = {
       username: "",
       password: ""
     };
   }
   get sign_type() {
-    const { match } = this.props;
-    return match.params.type || "signin";
+    const { type } = this.props;
+    return type || "signin";
   }
   signup = () => {
     const { username, password } = this.state;
