@@ -36,11 +36,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: [
-          'style-loader',
-          'css-loader',
-          'less-loader'
-        ]
+        loader: ['style-loader', 'css-loader', 'less-loader']
       },
       {
         test: /\.md$/,
@@ -70,6 +66,10 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
+    modules: [path.resolve(__dirname, '.'), 'node_modules'],
+    alias: {
+      style: path.resolve(__dirname, 'style')
+    }
   }
 };

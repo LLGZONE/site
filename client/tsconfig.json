@@ -9,7 +9,8 @@
     "target": "es2015",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
-    "lib": ["es7", "dom"]
+    "lib": ["es7", "dom"],
+    "baseUrl": "./"
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.d.ts"]

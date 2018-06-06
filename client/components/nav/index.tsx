@@ -1,30 +1,34 @@
-import React from "react";
+import React from 'react';
 import URL from '../../constants/url';
 import http from '../../lib/http';
 import { message } from 'antd';
 import './index.less';
 
 declare global {
-  interface Window { 
-    user_info: any
-   }
+  interface Window {
+    user_info: any;
+  }
 }
 export default class Nav extends React.Component {
   logout = () => {
     http({
       method: 'POST',
       url: URL.signout
-    }).then(() => {
-      location.href = '/'
-    }, () => {
-      message.error('登出失败');
-    })
-  }
+    }).then(
+      () => {
+        location.href = '/';
+      },
+      () => {
+        message.error('登出失败');
+      }
+    );
+  };
   render() {
     const { username } = window.user_info;
     if (!username) {
       return (
         <div className="nav-container">
+          <div className="logo">TopFun</div>
           <a className="signin" href="/signin">
             登录
           </a>
@@ -36,8 +40,11 @@ export default class Nav extends React.Component {
     } else {
       return (
         <div className="nav-container">
+          <div className="logo">TopFun</div>
           <div className="username">{username}</div>
-          <div className="logout" onClick={this.logout}>登出</div>
+          <div className="logout" onClick={this.logout}>
+            登出
+          </div>
         </div>
       );
     }
