@@ -6,7 +6,7 @@ class UserService extends Service {
         username
       }
     });
-    return user;
+    return user.toJSON();
   }
 }
 module.exports = UserService;
