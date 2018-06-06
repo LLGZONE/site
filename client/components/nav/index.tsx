@@ -1,6 +1,6 @@
 import React from "react";
 import URL from '../../constants/url';
-import http from '../../lib/fetch';
+import http from '../../lib/http';
 import { message } from 'antd';
 import './index.less';
 

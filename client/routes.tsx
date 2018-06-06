@@ -26,5 +26,13 @@ export default [
       loader: () => import(/* webpackChunkName: "sign" */ './containers/sign'),
       loading: Loading
     })
+  },
+  {
+    name: 'feed',
+    path: '/feed',
+    component: Loadable({
+      loader: () => import(/* webpackChunkName: "feed" */ './containers/feed'),
+      loading: Loading
+    })
   }
 ]

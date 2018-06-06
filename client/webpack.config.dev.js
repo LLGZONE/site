@@ -4,6 +4,7 @@ module.exports = merge(baseConfig, {
   output: {
     filename: '[name].js'
   },
+  devtool: "cheap-module-source-map",
   devServer: {
     host: "0.0.0.0",
     hot: false,

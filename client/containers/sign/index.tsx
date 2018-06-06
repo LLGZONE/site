@@ -1,5 +1,5 @@
 import React from "react";
-import http from "../../lib/fetch";
+import http from "../../lib/http";
 import URL from "../../constants/url";
 import { Button, Input, message } from "antd";
 import Layout from '../../components/layout';

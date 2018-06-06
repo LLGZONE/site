@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import App from "./app";
-import http from "./lib/fetch";
+import { Router } from "@reach/router";
+import Routers from "./routes";
+
+import http from "./lib/http";
 import URL from "./constants/url";
 (async function() {
   try {
@@ -15,9 +16,11 @@ import URL from "./constants/url";
     window.user_info = {};
   }
   ReactDOM.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+    <Router>
+      {Routers.map(({ name, path, component: Component }) => {
+        return <Component key={name} path={path} />;
+      })}
+    </Router>,
     document.getElementById("root")
   );
 })();

@@ -46,10 +46,14 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
+    "@reach/router": "^1.0.7",
+    "@types/classnames": "^2.2.4",
+    "@types/react-router": "^4.0.26",
     "antd": "^3.5.2",
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "classnames": "^2.2.5",
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",
     "koa-logger": "^3.1.0",
@@ -62,11 +66,13 @@
     "mysql2": "^1.5.3",
     "node-glob": "^1.2.0",
     "prop-types": "^15.6.1",
+    "puppeteer": "^1.4.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-loadable": "^5.4.0",
     "react-router-dom": "^4.2.2",
     "redis": "^2.8.0",
+    "request-promise-native": "^1.0.5",
     "sequelize": "^4.37.7"
   }
 }
