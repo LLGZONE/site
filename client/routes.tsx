@@ -34,5 +34,13 @@ export default [
       loader: () => import(/* webpackChunkName: "feed" */ './containers/feed'),
       loading: Loading
     })
+  },
+  {
+    name: 'detail',
+    path: '/a/:artilce_id',
+    component: Loadable({
+      loader: () => import(/* webpackChunkName: "detail" */ './containers/detail'),
+      loading: Loading
+    })
   }
 ]

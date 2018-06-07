@@ -1,9 +1,9 @@
 import React from "react";
 import { message } from "antd";
+import { Link } from "@reach/router";
 import Layout from "../../components/layout";
 import http from "../../lib/http";
 import URL from "../../constants/url";
-import "../../style/common.less";
 import "./index.less";
 
 export default class Feed extends React.Component {
@@ -29,23 +29,34 @@ export default class Feed extends React.Component {
     const result = await http.get(URL.movie_list);
     return result;
   };
+  renderChannel() {
+    const isActive = ({ isCurrent, isPa }) => {
+      console.log("isActive:", isCurrent);
+      return isCurrent ? { className: "active" } : null;
+    };
+    return (
+      <div>
+      </div>
+    );
+  }
   renderList() {
     const { movie_list } = this.state;
     return movie_list.map(item => (
-        <div key={item.id} className="movie-item">
-          <img
-            className="movie-poster"
-            src={item.poster}
-            width={200}
-            height={130}
-          />
-          <div className="movie-title">{item.title}</div>
-        </div>
+      <div key={item.id} className="movie-item">
+        <img
+          className="movie-poster"
+          src={item.poster}
+          width={200}
+          height={130}
+        />
+        <div className="movie-title">{item.title}</div>
+      </div>
     ));
   }
   render() {
     return (
       <Layout className="feed-container">
+        {this.renderChannel()}
         <div className="feed-main-container">{this.renderList()}</div>
       </Layout>
     );

@@ -25,10 +25,10 @@ export default class Nav extends React.Component {
   };
   render() {
     const { username } = window.user_info;
+    let account_dom = null;
     if (!username) {
-      return (
-        <div className="nav-container">
-          <div className="logo">TopFun</div>
+      account_dom = (
+        <div className="account-container">
           <a className="signin" href="/signin">
             登录
           </a>
@@ -38,9 +38,8 @@ export default class Nav extends React.Component {
         </div>
       );
     } else {
-      return (
-        <div className="nav-container">
-          <div className="logo">TopFun</div>
+      account_dom = (
+        <div className="account-container">
           <div className="username">{username}</div>
           <div className="logout" onClick={this.logout}>
             登出
@@ -48,5 +47,11 @@ export default class Nav extends React.Component {
         </div>
       );
     }
+    return (
+      <div className="nav-container">
+        <div className="logo">AcFun</div>
+        {account_dom}
+      </div>
+    );
   }
 }

@@ -45,6 +45,7 @@
     "pm2": "^2.10.3",
     "prettier-eslint-cli": "^4.7.1",
     "raw-loader": "^0.5.1",
+    "sequelize-cli": "^4.0.0",
     "style-loader": "^0.21.0",
     "stylelint": "^9.2.1",
     "ts-loader": "^3.5.0",
