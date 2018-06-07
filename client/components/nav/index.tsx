@@ -1,5 +1,5 @@
 import React from 'react';
-import URL from '../../constants/url';
+import * as URL from '../../constants/api/topfeed';
 import http from '../../lib/http';
 import { message } from 'antd';
 import './index.less';

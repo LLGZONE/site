@@ -1,22 +1,29 @@
-import React from "react";
-import { message } from "antd";
-import { Link } from "@reach/router";
-import Layout from "../../components/layout";
-import http from "../../lib/http";
-import URL from "../../constants/url";
-import "./index.less";
+import React from 'react';
+import { message } from 'antd';
+import { Link } from '@reach/router';
+import Layout from '../../components/layout';
+import http from '../../lib/http';
+import LazyLoad from 'react-lazyload';
+import * as URL from '../../constants/api/topfeed';
+import './index.less';
 
-export default class Feed extends React.Component {
+export default class Feed extends React.Component<
+  {},
+  {
+    loading: boolean;
+    article_list: any[];
+  }
+> {
   state = {
     loading: true,
-    movie_list: []
+    article_list: []
   };
   async componentDidMount() {
     try {
       const data: any = await this.fetchData();
       this.setState({
         loading: false,
-        movie_list: data.movie_list
+        article_list: data.article_list
       });
     } catch (err) {
       message.error(err.message);
@@ -26,31 +33,32 @@ export default class Feed extends React.Component {
     }
   }
   fetchData = async () => {
-    const result = await http.get(URL.movie_list);
+    const result = await http.get(URL.article_list);
     return result;
   };
   renderChannel() {
     const isActive = ({ isCurrent, isPa }) => {
-      console.log("isActive:", isCurrent);
-      return isCurrent ? { className: "active" } : null;
+      console.log('isActive:', isCurrent);
+      return isCurrent ? { className: 'active' } : null;
     };
-    return (
-      <div>
-      </div>
-    );
+    return <div />;
   }
   renderList() {
-    const { movie_list } = this.state;
-    return movie_list.map(item => (
-      <div key={item.id} className="movie-item">
-        <img
-          className="movie-poster"
-          src={item.poster}
-          width={200}
-          height={130}
-        />
-        <div className="movie-title">{item.title}</div>
-      </div>
+    const { article_list } = this.state;
+    return article_list.map(item => (
+      <Link to={`/a/${item.id}`} key={item.id}>
+        <div key={item.id} className="article-item">
+          <LazyLoad>
+            <img
+              className="article-poster"
+              src={item.images.small}
+              width={200}
+              height={130}
+            />
+          </LazyLoad>
+          <div className="article-title">{item.title}</div>
+        </div>
+      </Link>
     ));
   }
   render() {

@@ -6,7 +6,8 @@ export default [
     name: 'admin',
     path: '/admin',
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "admin" */ './containers/admin'),
+      loader: () =>
+        import(/* webpackChunkName: "admin" */ './containers/admin'),
       loading: Loading
     })
   },
@@ -37,10 +38,11 @@ export default [
   },
   {
     name: 'detail',
-    path: '/a/:artilce_id',
+    path: '/a/:item_id',
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "detail" */ './containers/detail'),
+      loader: () =>
+        import(/* webpackChunkName: "detail" */ './containers/detail'),
       loading: Loading
     })
   }
-]
+];

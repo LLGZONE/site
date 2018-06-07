@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Router } from "@reach/router";
-import Routers from "./routes";
+import { Router } from '@reach/router';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as URL from './constants/api/topfeed';
+import http from './lib/http';
+import Routers from './routes';
 
-import http from "./lib/http";
-import URL from "./constants/url";
 (async function() {
   try {
     const result = await http({
-      method: "GET",
+      method: 'GET',
       url: URL.user_info
     });
     window.user_info = result;
@@ -21,6 +21,6 @@ import URL from "./constants/url";
         return <Component key={name} path={path} />;
       })}
     </Router>,
-    document.getElementById("root")
+    document.getElementById('root')
   );
 })();

@@ -1,19 +1,25 @@
-import axios from "axios";
+import axios from 'axios';
 interface ServerResponse {
-  data: ServerData
+  data: ServerData;
 }
 
 interface ServerData {
-  foo: string
-  bar: number
+  foo: string;
+  bar: number;
 }
 axios.interceptors.response.use(
-  (response)=> {
+  response => {
     const data = response.data;
-    if (data.code !== 0) {
-      return Promise.reject(response);
+    // 站内api
+    if (typeof data.code !== 'undefined') {
+      if (data.code !== 0) {
+        return Promise.reject(response);
+      } else {
+        return data.data;
+      }
     } else {
-      return data.data;
+      // 站外api
+      return data;
     }
   },
   err => {

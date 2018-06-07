@@ -1,6 +1,7 @@
-module.exports = function(sequelize, DataTypes){
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define(
-    'Movie', {
+    'Article',
+    {
       title: {
         type: DataTypes.STRING(256),
         unique: true,
@@ -13,7 +14,7 @@ module.exports = function(sequelize, DataTypes){
       }
     },
     {
-      tableName: 'movies'
+      tableName: 'articles'
     }
-  )
-}
+  );
+};

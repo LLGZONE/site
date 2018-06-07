@@ -1,14 +1,17 @@
-import React from "react";
+import React from 'react';
 import classnames from 'classnames';
-import Nav from "../nav";
-import "./index.less";
+import Nav from '../nav';
+import './index.less';
 
 export default class Layout extends React.Component<{
   children: React.ReactNode;
   className?: string;
 }> {
-  static defaultProps ={
+  static defaultProps = {
     className: ''
+  };
+  componentDidCatch(err) {
+    console.log(err);
   }
   render() {
     const { className } = this.props;
