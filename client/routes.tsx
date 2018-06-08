@@ -12,14 +12,6 @@ export default [
     })
   },
   {
-    name: 'home',
-    path: '/',
-    component: Loadable({
-      loader: () => import(/* webpackChunkName: "home" */ './containers/home'),
-      loading: Loading
-    })
-  },
-  {
     name: 'sign',
     path: '/:type',
     exact: true,
@@ -31,6 +23,14 @@ export default [
   {
     name: 'feed',
     path: '/feed',
+    component: Loadable({
+      loader: () => import(/* webpackChunkName: "feed" */ './containers/feed'),
+      loading: Loading
+    })
+  },
+  {
+    name: 'feed',
+    path: '/',
     component: Loadable({
       loader: () => import(/* webpackChunkName: "feed" */ './containers/feed'),
       loading: Loading

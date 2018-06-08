@@ -1,9 +1,14 @@
 import React from 'react';
+import { navigate } from '@reach/router';
 import http from '../../lib/http';
 import * as URL from '../../constants/api/topfeed';
+import Auth from 'decorators/auth';
 import { Button, Input, message } from 'antd';
 import Layout from '../../components/layout';
 import './index.less';
+@Auth({
+  checkNotLogin: true
+})
 export default class Sign extends React.Component<
   {
     type?: string;
@@ -59,7 +64,7 @@ export default class Sign extends React.Component<
       () => {
         message.success('登录成功');
         setTimeout(() => {
-          location.href = '/admin';
+          navigate('/feed');
         }, 1000);
       },
       err => {
