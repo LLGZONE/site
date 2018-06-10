@@ -6,12 +6,9 @@ import Auth from 'decorators/auth';
 import { Button, Input, message } from 'antd';
 import Layout from '../../components/layout';
 import './index.less';
-@Auth({
-  checkNotLogin: true
-})
 export default class Sign extends React.Component<
   {
-    type?: string;
+    type?: 'signin' | 'signup';
   },
   {
     username?: string;
@@ -20,7 +17,6 @@ export default class Sign extends React.Component<
 > {
   constructor(props) {
     super(props);
-    console.log('props:', props);
     this.state = {
       username: '',
       password: ''
@@ -28,7 +24,7 @@ export default class Sign extends React.Component<
   }
   get sign_type() {
     const { type } = this.props;
-    return type || 'signin';
+    return type;
   }
   signup = () => {
     const { username, password } = this.state;
@@ -44,7 +40,7 @@ export default class Sign extends React.Component<
         message.success('注册成功,请登录');
         setTimeout(() => {
           location.href = '/signin';
-        }, 1000);
+        }, 1500);
       },
       err => {
         message.error('注册失败:', err.message);
@@ -64,7 +60,7 @@ export default class Sign extends React.Component<
       () => {
         message.success('登录成功');
         setTimeout(() => {
-          navigate('/feed');
+          location.href = '/';
         }, 1000);
       },
       err => {

@@ -8,11 +8,7 @@ class ArticleService extends Service {
       url: douban_api.movie_250
     });
     console.log('result:', result.data.subjects);
-    return result.data.subjects.map(item => ({
-      id: item.id,
-      title: item.title,
-      images: item.images
-    }));
+    return result.data.subjects;
   }
   async getUserByLoginName(username) {
     const user = await this.ctx.models.User.findOne({

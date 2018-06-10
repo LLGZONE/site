@@ -1,6 +1,6 @@
 import React from 'react';
-import { message } from 'antd';
-import { Link } from '@reach/router';
+import { message, Rate } from 'antd';
+import { Link, navigate } from '@reach/router';
 import Layout from '../../components/layout';
 import http from '../../lib/http';
 import LazyLoad from 'react-lazyload';
@@ -42,7 +42,6 @@ export default class Feed extends React.Component<
   };
   renderChannel() {
     const isActive = ({ isCurrent, isPa }) => {
-      console.log('isActive:', isCurrent);
       return isCurrent ? { className: 'active' } : null;
     };
     return <div />;
@@ -50,19 +49,26 @@ export default class Feed extends React.Component<
   renderList() {
     const { article_list } = this.state;
     return article_list.map(item => (
-      <Link to={`/a/${item.id}`} key={item.id}>
+      <div key={item.id} onClick={() => navigate(`/a/${item.id}`)}>
         <div key={item.id} className="article-item">
           <LazyLoad>
             <img
               className="article-poster"
-              src={item.images.small}
-              width={200}
-              height={130}
+              src={item.images.large}
+              width={115}
+              height={172}
+              referrerPolicy="never"
             />
           </LazyLoad>
-          <div className="article-title">{item.title}</div>
+          <div className="article-detail">
+            <div className="article-title">{item.title}</div>
+            <div className="article-rate">
+              <div className="article-rate-score">{item.rating.average}</div>
+              <Rate value={item.rating.average / 2} disabled />
+            </div>
+          </div>
         </div>
-      </Link>
+      </div>
     ));
   }
   render() {

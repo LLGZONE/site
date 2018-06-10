@@ -10,6 +10,7 @@ export default function Auth(
         user_name?: string;
         [key: string]: any;
       };
+      [key: string]: any;
     }> {
       static defaultProps = {
         user_info: window.user_info
@@ -18,7 +19,6 @@ export default function Auth(
         isAuth: false
       };
       componentDidMount() {
-        
         const { user_info } = this.props;
         if (config.checkLogin) {
           if (!user_info.username) {
@@ -30,7 +30,7 @@ export default function Auth(
           }
         }
         if (config.checkNotLogin) {
-          if (!user_info.user_name) {
+          if (!user_info.username) {
             this.setState({
               isAuth: true
             });

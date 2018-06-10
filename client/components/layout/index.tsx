@@ -11,7 +11,7 @@ export default class Layout extends React.Component<{
     className: ''
   };
   componentDidCatch(err) {
-    console.log(err);
+    console.log('err:', err);
   }
   render() {
     const { className } = this.props;

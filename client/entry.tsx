@@ -2,6 +2,7 @@ import { Router } from '@reach/router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as URL from './constants/api/topfeed';
+import NotFound from 'containers/404';
 import http from './lib/http';
 import Routers from './routes';
 
@@ -20,6 +21,7 @@ import Routers from './routes';
       {Routers.map(({ name, path, component: Component }) => {
         return <Component key={name} path={path} />;
       })}
+      <NotFound default />
     </Router>,
     document.getElementById('root')
   );

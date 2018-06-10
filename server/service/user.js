@@ -4,9 +4,10 @@ class UserService extends Service {
     const user = await this.ctx.models.User.findOne({
       where: {
         username
-      }
+      },
+      raw: true
     });
-    return user.toJSON();
+    return user;
   }
 }
 module.exports = UserService;

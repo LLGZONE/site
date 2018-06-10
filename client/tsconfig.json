@@ -4,7 +4,7 @@
     "outDir": "./dist/",
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "module": "esNext",
     "target": "es2015",
     "allowSyntheticDefaultImports": true,

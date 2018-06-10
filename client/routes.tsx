@@ -1,4 +1,5 @@
 import Loadable from 'react-loadable';
+import Home from 'containers/home';
 import Loading from './components/loading';
 
 export default [
@@ -12,11 +13,20 @@ export default [
     })
   },
   {
-    name: 'sign',
-    path: '/:type',
-    exact: true,
+    name: 'signin',
+    path: '/signin',
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "sign" */ './containers/sign'),
+      loader: () =>
+        import(/* webpackChunkName: "signin" */ './containers/signin'),
+      loading: Loading
+    })
+  },
+  {
+    name: 'signup',
+    path: '/signup',
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "signup" */ './containers/signup'),
       loading: Loading
     })
   },
@@ -29,10 +39,10 @@ export default [
     })
   },
   {
-    name: 'feed',
+    name: 'home',
     path: '/',
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "feed" */ './containers/feed'),
+      loader: () => import(/* webpackChunkName: "feed" */ './containers/home'),
       loading: Loading
     })
   },

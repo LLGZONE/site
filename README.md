@@ -1,2 +1,2 @@
 # site
-my site powered by koa
+Koa2 + React + Webpack + Reach-Router + Mysql + Redis
