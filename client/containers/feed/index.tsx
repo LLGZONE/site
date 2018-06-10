@@ -8,10 +8,7 @@ import * as URL from '../../constants/api/topfeed';
 import Auth from 'decorators/auth';
 import './index.less';
 
-@Auth({
-  checkLogin: true
-})
-export default class Feed extends React.Component<
+class Feed extends React.Component<
   {},
   {
     loading: boolean;
@@ -57,7 +54,6 @@ export default class Feed extends React.Component<
               src={item.images.large}
               width={115}
               height={172}
-              referrerPolicy="never"
             />
           </LazyLoad>
           <div className="article-detail">
@@ -80,3 +76,5 @@ export default class Feed extends React.Component<
     );
   }
 }
+
+export default Auth({ checkLogin: true })(Feed);

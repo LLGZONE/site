@@ -1,6 +1,7 @@
 import React from 'react';
 import { navigate } from '@reach/router';
 import Loading from 'components/loading';
+
 export default function Auth(
   config: { checkLogin?: boolean; checkNotLogin?: boolean } = {}
 ) {
