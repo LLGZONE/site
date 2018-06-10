@@ -1,10 +1,10 @@
 import React from 'react';
 import { message, Rate } from 'antd';
 import { Link, navigate } from '@reach/router';
-import Layout from '../../components/layout';
-import http from '../../lib/http';
+import Layout from 'components/layout';
+import http from 'lib/http';
 import LazyLoad from 'react-lazyload';
-import * as URL from '../../constants/api/topfeed';
+import * as URL from 'constants/api/topfeed';
 import Auth from 'decorators/auth';
 import './index.less';
 

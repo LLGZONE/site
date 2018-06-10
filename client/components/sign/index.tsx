@@ -1,10 +1,10 @@
 import React from 'react';
 import { navigate } from '@reach/router';
-import http from '../../lib/http';
-import * as URL from '../../constants/api/topfeed';
+import http from 'lib/http';
+import * as URL from 'constants/api/topfeed';
 import Auth from 'decorators/auth';
 import { Button, Input, message } from 'antd';
-import Layout from '../../components/layout';
+import Layout from 'components/layout';
 import './index.less';
 export default class Sign extends React.Component<
   {

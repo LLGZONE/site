@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import Nav from '../nav';
+import Nav from 'components/nav';
 import './index.less';
 
 export default class Layout extends React.Component<{

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from '@reach/router';
-import Layout from '../../components/layout';
-import '../../style/common.less';
+import Layout from 'components/layout';
+import 'style/common.less';
 
 export default class Home extends React.Component<{
   user_info: {
