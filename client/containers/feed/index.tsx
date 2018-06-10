@@ -1,13 +1,14 @@
 import React from 'react';
 import { message, Rate } from 'antd';
 import { Link, navigate } from '@reach/router';
+import LoadMore, { ResponseProps } from 'ui/loadmore';
 import Layout from 'components/layout';
-import channels from './channel';
 import http from 'lib/http';
 import LazyLoad from 'react-lazyload';
 import * as URL from 'constants/api/topfeed';
 import Auth from 'decorators/auth';
 import './index.less';
+import channels from './channel';
 
 class Feed extends React.Component<
   {},
@@ -20,31 +21,27 @@ class Feed extends React.Component<
     loading: true,
     article_list: []
   };
-  async componentDidMount() {
-    try {
-      const data: any = await this.fetchData();
-      this.setState({
-        loading: false,
-        article_list: data.article_list
-      });
-    } catch (err) {
-      message.error(err.message);
-      this.setState({
-        loading: false
-      });
-    }
-  }
-  fetchData = async () => {
-    const result = await http.get(URL.article_list);
-    return result;
+  fetchData = async (cursor: number) => {
+    const result = await http<any>({
+      url: URL.article_list,
+      params: {
+        cursor,
+        start: cursor,
+        count: 3
+      }
+    });
+    return {
+      data_list: result.article_list,
+      has_more: result.has_more,
+      cursor: result.cursor
+    };
   };
   renderChannel() {
     Object.entries(channels).map(([key, value]) => (
       <Link to={`/a/`}>value</Link>
     ));
   }
-  renderList() {
-    const { article_list } = this.state;
+  renderList(article_list) {
     return article_list.map(item => (
       <div key={item.id} onClick={() => navigate(`/a/${item.id}`)}>
         <div key={item.id} className="article-item">
@@ -70,8 +67,9 @@ class Feed extends React.Component<
   render() {
     return (
       <Layout className="feed-container">
-        {this.renderChannel()}
-        <div className="feed-main-container">{this.renderList()}</div>
+        <div className="feed-main-container">
+          <LoadMore fetch_data={this.fetchData}>{this.renderList}</LoadMore>
+        </div>
       </Layout>
     );
   }

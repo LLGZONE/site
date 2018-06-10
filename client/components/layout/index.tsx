@@ -10,9 +10,6 @@ export default class Layout extends React.Component<{
   static defaultProps = {
     className: ''
   };
-  componentDidCatch(err) {
-    console.log('err:', err);
-  }
   render() {
     const { className } = this.props;
     return (

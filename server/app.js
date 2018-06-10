@@ -14,7 +14,7 @@ const config = require('./config');
 const app = new Core();
 app.use(errorHandle);
 app.on('error', err => {
-  console.log('err:', err);
+  console.log('app err:', err);
 });
 app.use(cors());
 app.use(koaBody());

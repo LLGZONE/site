@@ -1,12 +1,4 @@
-import axios from 'axios';
-interface ServerResponse {
-  data: ServerData;
-}
-
-interface ServerData {
-  foo: string;
-  bar: number;
-}
+const axios = require('axios');
 axios.interceptors.response.use(
   response => {
     const data = response.data;
@@ -26,7 +18,9 @@ axios.interceptors.response.use(
     return Promise.reject(err);
   }
 );
-export default async function http<T>(config): Promise<T> {
-  const result = ((await axios.request<T>(config)) as any) as Promise<T>;
+async function http(config) {
+  const result = await axios.request(config);
   return result;
 }
+
+module.exports = http;

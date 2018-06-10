@@ -1,14 +1,16 @@
 const { Service } = require('../core');
-const axios = require('axios');
 const douban_api = require('../constants/douban_api');
+const http = require('../helper/http');
 class ArticleService extends Service {
-  async article_list() {
-    console.log('models:', this.ctx.models);
-    const result = await axios({
-      url: douban_api.movie_250
+  async article_list({ start, count }) {
+    const result = await http({
+      url: douban_api.movie_250,
+      params: {
+        start,
+        count
+      }
     });
-    console.log('result:', result.data.subjects);
-    return result.data.subjects;
+    return result;
   }
   async getUserByLoginName(username) {
     const user = await this.ctx.models.User.findOne({
