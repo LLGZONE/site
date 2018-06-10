@@ -2,6 +2,7 @@ import React from 'react';
 import { message, Rate } from 'antd';
 import { Link, navigate } from '@reach/router';
 import Layout from 'components/layout';
+import channels from './channel';
 import http from 'lib/http';
 import LazyLoad from 'react-lazyload';
 import * as URL from 'constants/api/topfeed';
@@ -38,10 +39,9 @@ class Feed extends React.Component<
     return result;
   };
   renderChannel() {
-    const isActive = ({ isCurrent, isPa }) => {
-      return isCurrent ? { className: 'active' } : null;
-    };
-    return <div />;
+    Object.entries(channels).map(([key, value]) => (
+      <Link to={`/a/`}>value</Link>
+    ));
   }
   renderList() {
     const { article_list } = this.state;

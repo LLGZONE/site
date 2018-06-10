@@ -9,7 +9,7 @@
     "target": "es2015",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
-    "lib": ["es7", "dom"],
+    "lib": ["es2017", "dom"],
     "baseUrl": "./"
   },
   "include": ["**/*.ts", "**/*.tsx"],

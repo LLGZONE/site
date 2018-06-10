@@ -2,26 +2,30 @@
 .nav-container {
   position: fixed;
   z-index: @zindex-affix;
-  display: flex;
   top: 0;
   left: 0;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
   font-size: 16px;
   line-height: 40px;
   background: black;
   height: 40px;
   color: #fff;
-  .logo {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .account-container {
+  .nav-main {
     display: flex;
-    .logout {
-      margin-left: 10px;
-      color: white;
+    justify-content: space-between;
+    max-width: 1168px;
+    margin: auto;
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .account-container {
+      display: flex;
+      .logout {
+        margin-left: 10px;
+        color: white;
+      }
     }
   }
 }

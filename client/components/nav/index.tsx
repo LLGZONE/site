@@ -49,8 +49,10 @@ export default class Nav extends React.Component {
     }
     return (
       <div className="nav-container">
-        <div className="logo">AcFun</div>
-        {account_dom}
+        <div className="nav-main">
+          <div className="logo">AcFun</div>
+          {account_dom}
+        </div>
       </div>
     );
   }
