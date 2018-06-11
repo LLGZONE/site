@@ -95,7 +95,7 @@ export default class Sign extends React.Component<
               className="submit-btn"
               onClick={this.sign_type === 'signup' ? this.signup : this.signin}
             >
-              {this.sign_type}
+              {this.sign_type === 'signup' ? '注册' : '登录'}
             </Button>
           </div>
         </div>

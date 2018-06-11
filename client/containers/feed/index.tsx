@@ -37,8 +37,8 @@ class Feed extends React.Component<
     };
   };
   renderChannel() {
-    Object.entries(channels).map(([key, value]) => (
-      <Link to={`/a/`}>value</Link>
+    return Object.entries(channels).map(([key, value]) => (
+      <Link to={`/feed/${key}`}>value</Link>
     ));
   }
   renderList(article_list) {
