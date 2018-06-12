@@ -2,23 +2,23 @@ const { Core } = require('./core');
 const koaBody = require('koa-body');
 const cors = require('@koa/cors');
 const path = require('path');
-const logger = require('koa-logger');
 const session = require('koa-session');
 const redis = require('redis');
 const redisStore = require('koa-redis');
 const errorHandle = require('./middleware/errorHandler');
+const logger = require('./middleware/logger');
 const router = require('./router');
 const services = require('./service');
 const { client, models } = require('./db');
 const config = require('./config');
 const app = new Core();
 app.use(errorHandle);
+app.use(logger);
 app.on('error', err => {
   console.log('app err:', err);
 });
 app.use(cors());
 app.use(koaBody());
-app.use(logger());
 app.keys = ['secret key'];
 const session_config = {
   store: redisStore({})

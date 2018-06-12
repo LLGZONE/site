@@ -1,4 +1,8 @@
 const axios = require('axios');
+const { serverLogger } = require('./logger');
+axios.interceptors.request.use(config => {
+  serverLogger.info(config);
+});
 axios.interceptors.response.use(
   response => {
     const data = response.data;
