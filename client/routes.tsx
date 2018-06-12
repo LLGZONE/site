@@ -4,15 +4,6 @@ import Loading from './components/loading';
 
 export default [
   {
-    name: 'admin',
-    path: '/admin',
-    component: Loadable({
-      loader: () =>
-        import(/* webpackChunkName: "admin" */ './containers/admin'),
-      loading: Loading
-    })
-  },
-  {
     name: 'signin',
     path: '/signin',
     component: Loadable({
@@ -52,6 +43,15 @@ export default [
     component: Loadable({
       loader: () =>
         import(/* webpackChunkName: "detail" */ './containers/detail'),
+      loading: Loading
+    })
+  },
+  {
+    name: 'studio',
+    path: '/studio',
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "studio" */ './containers/studio'),
       loading: Loading
     })
   }
