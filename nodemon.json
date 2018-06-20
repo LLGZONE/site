@@ -7,10 +7,10 @@
 	],
 	"verbose": true,
 	"execMap": {
-		"js": "node --harmony"
+		"js": "babel-node"
 	},
 	"watch": [
 		"server/"
 	],
-	"ext": "js json"
+	"ext": "js json ts"
 }
