@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { BackTop } from 'antd';
 import Nav from 'components/nav';
 import './index.less';
-
 export default class Layout extends React.Component<{
   children: React.ReactNode;
   className?: string;

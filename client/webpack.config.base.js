@@ -1,10 +1,8 @@
 const path = require('path');
-const fs = require('fs');
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: './entry.tsx',
+  entry: ['@babel/polyfill', './entry.tsx'],
   context: __dirname,
   output: {
     path: path.resolve(__dirname, '../dist/client'),
@@ -23,7 +21,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.jsx?$/,
+        test: /.(jsx?|tsx?)$/,
         use: ['babel-loader'],
         exclude: /node_modules/
       },
@@ -41,11 +39,6 @@ module.exports = {
       {
         test: /\.md$/,
         use: ['raw-loader']
-      },
-      {
-        test: /\.tsx?$/,
-        use: ['babel-loader', 'ts-loader'],
-        exclude: /node_modules/
       },
       {
         test: /\.(png|svg|jpg|gif)$/,

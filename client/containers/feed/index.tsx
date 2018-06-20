@@ -42,6 +42,8 @@ class Feed extends React.Component<
     ));
   }
   renderList(article_list) {
+    const str: string = {};
+    console.log('str:', str.name);
     return article_list.map(item => (
       <div key={item.id} onClick={() => navigate(`/a/${item.id}`)}>
         <div key={item.id} className="article-item">
