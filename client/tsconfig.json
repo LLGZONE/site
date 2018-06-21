@@ -3,7 +3,6 @@
     "sourceMap": true,
     "outDir": "./dist/",
     "moduleResolution": "node",
-    "experimentalDecorators": true,
     "jsx": "preserve",
     "module": "esNext",
     "target": "es2015",

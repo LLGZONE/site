@@ -8,7 +8,7 @@ const client = new Sequelize(
   config.db.password,
   {
     host: config.db.host,
-    logging: false,
+    logging: config.db.logging,
     dialect: 'mysql',
     pool: {
       max: 5,

@@ -8,7 +8,6 @@ module.exports = {
         }
       }
     ],
-    '@babel/stage-0',
     '@babel/react',
     '@babel/typescript'
   ],
@@ -20,6 +19,8 @@ module.exports = {
         libraryDirectory: 'es',
         style: 'css'
       }
-    ]
+    ],
+    '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-proposal-class-properties'
   ]
 };
