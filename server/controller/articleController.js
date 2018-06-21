@@ -1,5 +1,5 @@
 // @ts-check
-module.exports = {
+export default {
   async article_list(ctx, next) {
     const { start = 0, count } = ctx.query;
     const {

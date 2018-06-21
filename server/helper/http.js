@@ -1,5 +1,5 @@
-const axios = require('axios');
-const { serverLogger } = require('./logger');
+import axios from 'axios';
+import { serverLogger } from './logger';
 axios.interceptors.response.use(
   response => {
     const data = response.data;
@@ -24,4 +24,4 @@ async function http(config) {
   return result;
 }
 
-module.exports = http;
+export default http;

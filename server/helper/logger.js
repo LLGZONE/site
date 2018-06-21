@@ -1,4 +1,4 @@
-const log4js = require('log4js');
+import log4js from 'log4js';
 log4js.configure({
   appenders: {
     console: { type: 'console' }
@@ -10,7 +10,7 @@ log4js.configure({
 const serverLogger = log4js.getLogger('server');
 const clientLogger = log4js.getLogger('client');
 
-module.exports = {
+export default {
   serverLogger,
   clientLogger
 };

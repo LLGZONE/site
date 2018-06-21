@@ -1,16 +1,16 @@
-module.exports = {
-  async checkNotLogin(ctx,next){
-    if(ctx.session && ctx.session.user){
+export default {
+  async checkNotLogin(ctx, next) {
+    if (ctx.session && ctx.session.user) {
       ctx.redirect('/admin');
-    }else {
+    } else {
       await next();
     }
   },
-  async checkLogin(ctx,next){
-    if(!ctx.session || !ctx.session.user){
+  async checkLogin(ctx, next) {
+    if (!ctx.session || !ctx.session.user) {
       ctx.redirect('/signin');
-    }else {
+    } else {
       await next();
     }
   }
-}
+};

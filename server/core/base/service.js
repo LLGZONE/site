@@ -1,7 +1,7 @@
 class Service {
-  constructor(ctx,app){
+  constructor(ctx, app) {
     this.ctx = ctx;
     this.app = app;
   }
 }
-module.exports = Service;
+export default Service;

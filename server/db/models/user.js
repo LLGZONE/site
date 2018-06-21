@@ -1,6 +1,7 @@
-module.exports = function(sequelize, DataTypes){
+export default function(sequelize, DataTypes) {
   return sequelize.define(
-    'User', {
+    'User',
+    {
       username: {
         type: DataTypes.STRING(64),
         unique: true,
@@ -15,5 +16,5 @@ module.exports = function(sequelize, DataTypes){
     {
       tableName: 'users'
     }
-  )
+  );
 }

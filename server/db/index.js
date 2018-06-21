@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const config = require('../config');
+import fs from 'fs';
+import path from 'path';
+import Sequelize from 'sequelize';
+import config from '../config';
 const client = new Sequelize(
   config.db.database,
   config.db.username,
@@ -36,7 +36,7 @@ Object.keys(models).forEach(function(modelName) {
   }
 });
 
-module.exports = {
+export default {
   models,
   client
 };

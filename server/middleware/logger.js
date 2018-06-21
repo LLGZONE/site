@@ -1,5 +1,6 @@
-const { clientLogger } = require('../helper/logger');
-module.exports = async (ctx, next) => {
-  clientLogger.info(ctx);
+import { clientLogger } from '../helper/logger';
+
+export default async (ctx, next) => {
+  //clientLogger.info(ctx);
   await next();
 };

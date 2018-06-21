@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   env: 'dev',
   server: {
     host: 'http://127.0.0.1',
@@ -15,4 +15,4 @@ module.exports = {
     host: 'http://127.0.0.1',
     port: 6379
   }
-}
+};

@@ -1,6 +1,6 @@
-const { Service } = require('../core');
-const douban_api = require('../constants/douban_api');
-const http = require('../helper/http');
+import { Service } from '../core';
+import douban_api from '../constants/douban_api';
+import http from '../helper/http';
 class ArticleService extends Service {
   async article_list({ start, count }) {
     const result = await http({
@@ -22,4 +22,4 @@ class ArticleService extends Service {
     return user;
   }
 }
-module.exports = ArticleService;
+export default ArticleService;

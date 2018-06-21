@@ -10,5 +10,6 @@ module.exports = {
     ],
     '@babel/stage-0',
     '@babel/typescript'
-  ]
+  ],
+  plugins: ['add-module-exports']
 };
