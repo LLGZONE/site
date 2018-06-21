@@ -36,7 +36,4 @@ Object.keys(models).forEach(function(modelName) {
   }
 });
 
-export default {
-  models,
-  client
-};
+export { models, client };

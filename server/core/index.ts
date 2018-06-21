@@ -4,6 +4,7 @@ import Service from './base/service';
 import Controller from './base/controller';
 
 class Core extends Koa {
+  loader;
   constructor() {
     super();
     this.loader = new Loader(this);
@@ -15,8 +16,4 @@ class Core extends Koa {
   }
 }
 
-export default {
-  Core,
-  Service,
-  Controller
-};
+export { Core, Service, Controller };

@@ -1,12 +1,13 @@
 const CACHE = Symbol('cache');
 class Loader {
+  app;
   constructor(app) {
     this.app = app;
   }
   load() {
     this.loadService();
   }
-  loadToContext(targets, app, property) {
+  loadToContext(targets: { new () }, app, property) {
     // 挂载到context下
     Object.defineProperty(app.context, property, {
       get() {

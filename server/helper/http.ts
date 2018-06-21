@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { serverLogger } from './logger';
 axios.interceptors.response.use(
   response => {
     const data = response.data;
