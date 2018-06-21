@@ -1,5 +1,5 @@
 class Controller {
-  constructor(ctx,app){
+  constructor(ctx, app) {
     this.ctx = ctx;
     this.app = app;
   }

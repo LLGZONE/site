@@ -3,6 +3,7 @@
     "sourceMap": true,
     "outDir": "./dist/",
     "moduleResolution": "node",
+    "jsx": "preserve",
     "module": "esNext",
     "target": "es2015",
     "allowSyntheticDefaultImports": true,

@@ -1,14 +1,11 @@
 import { Core } from './core';
 import koaBody from 'koa-body';
 import cors from '@koa/cors';
-import path from 'path';
 import session from 'koa-session';
-import redis from 'redis';
 import redisStore from 'koa-redis';
 import errorHandle from './middleware/errorHandler';
 import logger from './middleware/logger';
 import router from './router';
-import services from './service';
 import { client, models } from './db';
 import config from './config';
 const app = new Core();
@@ -49,3 +46,4 @@ app.use(router.routes()).use(router.allowedMethods());
 app.listen(config.server.port || 3333, () => {
   console.log('start server at port: ', config.server.port);
 });
+const a: string = 'hello';
