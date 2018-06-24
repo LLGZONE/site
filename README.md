@@ -1,5 +1,16 @@
 # site
-最新技术栈 Koa2 + React + Webpack + Reach-Router + Mysql + Redis
+最新前端技术栈
++ Typescript
++ React
++ React-Router
++ Immer
++ Rematch
++ SSR
++ GraphQL
++ Koa2
++ Webpack
++ Mysql
++ Redis
 
 ### Dev for mac
 ```shell
