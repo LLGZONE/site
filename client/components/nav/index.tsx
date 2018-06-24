@@ -1,7 +1,8 @@
 import React from 'react';
 import * as URL from 'constants/api/topfeed';
 import http from 'lib/http';
-import { message } from 'antd';
+import { Link } from '@reach/router';
+import { message, Tooltip, Popover } from 'antd';
 import './index.less';
 
 declare global {
@@ -40,10 +41,20 @@ export default class Nav extends React.Component {
     } else {
       account_dom = (
         <div className="account-container">
-          <div className="username">{username}</div>
-          <div className="logout" onClick={this.logout}>
-            登出
-          </div>
+          <Popover
+            content={
+              <div className="account-tip">
+                <Link to={'/studio'} className="tip-item">
+                  studio
+                </Link>
+                <div className="tip-item logout" onClick={this.logout}>
+                  登出
+                </div>
+              </div>
+            }
+          >
+            <div className="username">{username}</div>
+          </Popover>
         </div>
       );
     }

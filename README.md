@@ -6,6 +6,7 @@
 + Immer
 + Rematch
 + SSR
++ I18n
 + GraphQL
 + Koa2
 + Webpack
