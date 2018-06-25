@@ -9,8 +9,13 @@ export default function(sequelize, DataTypes) {
       },
       password: {
         type: DataTypes.STRING(64),
-        unique: true,
         allowNull: false
+      },
+      avatar: {
+        type: DataTypes.STRING(64),
+        unique: true,
+        allowNull: false,
+        defaultValue: ''
       }
     },
     {

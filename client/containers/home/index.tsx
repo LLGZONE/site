@@ -1,16 +1,14 @@
 import React from 'react';
 import { Redirect } from '@reach/router';
+import { connect } from 'react-redux';
 import Layout from 'components/layout';
 import 'style/common.less';
 
-export default class Home extends React.Component<{
+class Home extends React.Component<{
   user_info: {
     username?: string;
   };
 }> {
-  static defaultProps = {
-    user_info: window.user_info
-  };
   state = {
     user: null
   };
@@ -23,3 +21,5 @@ export default class Home extends React.Component<{
     }
   }
 }
+
+export default connect((state: any) => ({ user_info: state.user_info }))(Home);

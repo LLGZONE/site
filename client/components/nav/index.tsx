@@ -3,14 +3,12 @@ import * as URL from 'constants/api/topfeed';
 import http from 'lib/http';
 import { Link } from '@reach/router';
 import { message, Tooltip, Popover } from 'antd';
+import { connect } from 'react-redux';
 import './index.less';
 
-declare global {
-  interface Window {
-    user_info: any;
-  }
-}
-export default class Nav extends React.Component {
+class Nav extends React.Component<{
+  user_info: any;
+}> {
   logout = () => {
     http({
       method: 'POST',
@@ -25,7 +23,7 @@ export default class Nav extends React.Component {
     );
   };
   render() {
-    const { username } = window.user_info;
+    const { username } = this.props.user_info;
     let account_dom = null;
     if (!username) {
       account_dom = (
@@ -68,3 +66,19 @@ export default class Nav extends React.Component {
     );
   }
 }
+const mapState = state => {
+  console.log('state:', state);
+  return {
+    user_info: state.user_info
+  };
+};
+const mapDispatch = state => {
+  return {
+    update: state.user_info.update
+  };
+};
+
+export default connect(
+  mapState,
+  mapDispatch
+)(Nav);

@@ -1,12 +1,12 @@
-const baseConfig = require("./webpack.config.base");
-const merge = require("webpack-merge");
+const baseConfig = require('./webpack.config.base');
+const merge = require('webpack-merge');
 module.exports = merge(baseConfig, {
   output: {
     filename: '[name].js'
   },
-  devtool: "cheap-module-source-map",
+  devtool: 'source-map',
   devServer: {
-    host: "0.0.0.0",
+    host: '0.0.0.0',
     hot: false,
     inline: false,
     port: 4001,
@@ -14,4 +14,3 @@ module.exports = merge(baseConfig, {
     historyApiFallback: true
   }
 });
-

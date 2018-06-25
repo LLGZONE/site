@@ -1,11 +1,12 @@
 import React from 'react';
 import { navigate } from '@reach/router';
+import { connect } from 'react-redux';
 import Loading from 'components/loading';
 
 export default function Auth(
   config: { checkLogin?: boolean; checkNotLogin?: boolean } = {}
 ) {
-  return WrappedComponent =>
+  return WrappedComponent => {
     class WithAuth extends React.Component<{
       user_info: {
         user_name?: string;
@@ -13,9 +14,6 @@ export default function Auth(
       };
       [key: string]: any;
     }> {
-      static defaultProps = {
-        user_info: window.user_info
-      };
       state = {
         isAuth: false
       };
@@ -43,5 +41,12 @@ export default function Auth(
       render() {
         return this.state.isAuth ? <WrappedComponent {...this.props} /> : null;
       }
-    };
+    }
+    return connect((state: any) => {
+      console.log('state:', state);
+      return {
+        user_info: state.user_info
+      };
+    })(WithAuth);
+  };
 }
