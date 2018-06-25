@@ -1,7 +1,7 @@
-export default {
-  signin: '/signin',
-  signup: '/signup',
-  feed: '/feed',
-  studio: '/studio',
-  home: '/'
-};
+export const signin = '/signin';
+export const signup = '/signup';
+export const feed = '/feed';
+export const studio = '/studio';
+export const home = '/';
+export const post = '/post';
+export const settings = '/settings';

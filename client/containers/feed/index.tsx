@@ -1,6 +1,6 @@
 import React from 'react';
 import { message, Rate } from 'antd';
-import Path from 'constants/path';
+import * as Path from 'constants/path';
 import { Link, navigate } from '@reach/router';
 import LoadMore, { ResponseProps } from 'ui/loadmore';
 import Layout from 'components/layout';

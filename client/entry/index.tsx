@@ -1,13 +1,13 @@
 import { Router } from '@reach/router';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as URL from './constants/api/topfeed';
-import NotFound from 'containers/404';
-import http from './lib/http';
-import Routers from './routes';
 import { init } from '@rematch/core';
+import * as URL from 'constants/api/topfeed';
+import NotFound from 'containers/404';
+import http from 'lib/http';
+import Routers from './routes';
 import * as models from './models';
-import formatUser from './lib/format_user';
+import formatUser from 'lib/format_user';
 import { Provider } from 'react-redux';
 const store = init({
   models

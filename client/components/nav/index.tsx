@@ -1,7 +1,7 @@
 import React from 'react';
 import * as URL from 'constants/api/topfeed';
 import http from 'lib/http';
-import Path from 'constants/path';
+import * as Path from 'constants/path';
 import { Avatar } from 'antd';
 //import Avatar from 'components/avatar';
 import { Link } from '@reach/router';
