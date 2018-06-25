@@ -10,7 +10,7 @@ export default class Studio extends React.Component {
         <div className="studio-container">
           <div className="studio-menu">
             <Menu>
-              <Menu.Item>发文</Menu.Item>
+              <Menu.Item>写博客</Menu.Item>
               <Menu.Item>个人设置</Menu.Item>
             </Menu>
           </div>

@@ -72,7 +72,6 @@ class Nav extends React.Component<{
   }
 }
 const mapState = state => {
-  console.log('state:', state);
   return {
     user_info: state.user_info
   };
