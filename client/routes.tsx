@@ -1,11 +1,11 @@
 import Loadable from 'react-loadable';
-import Home from 'containers/home';
 import Loading from './components/loading';
+import Path from 'constants/path';
 
 export default [
   {
     name: 'signin',
-    path: '/signin',
+    path: Path.signin,
     component: Loadable({
       loader: () =>
         import(/* webpackChunkName: "signin" */ './containers/signin'),
@@ -14,7 +14,7 @@ export default [
   },
   {
     name: 'signup',
-    path: '/signup',
+    path: Path.signup,
     component: Loadable({
       loader: () =>
         import(/* webpackChunkName: "signup" */ './containers/signup'),
@@ -23,7 +23,7 @@ export default [
   },
   {
     name: 'feed',
-    path: '/feed',
+    path: Path.feed,
     component: Loadable({
       loader: () => import(/* webpackChunkName: "feed" */ './containers/feed'),
       loading: Loading
@@ -31,7 +31,7 @@ export default [
   },
   {
     name: 'home',
-    path: '/',
+    path: Path.home,
     component: Loadable({
       loader: () => import(/* webpackChunkName: "feed" */ './containers/home'),
       loading: Loading
@@ -48,7 +48,7 @@ export default [
   },
   {
     name: 'studio',
-    path: '/studio',
+    path: Path.studio,
     component: Loadable({
       loader: () =>
         import(/* webpackChunkName: "studio" */ './containers/studio'),

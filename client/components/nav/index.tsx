@@ -1,6 +1,9 @@
 import React from 'react';
 import * as URL from 'constants/api/topfeed';
 import http from 'lib/http';
+import Path from 'constants/path';
+import { Avatar } from 'antd';
+//import Avatar from 'components/avatar';
 import { Link } from '@reach/router';
 import { message, Tooltip, Popover } from 'antd';
 import { connect } from 'react-redux';
@@ -23,7 +26,7 @@ class Nav extends React.Component<{
     );
   };
   render() {
-    const { username } = this.props.user_info;
+    const { username, avatar } = this.props.user_info;
     let account_dom = null;
     if (!username) {
       account_dom = (
@@ -42,7 +45,7 @@ class Nav extends React.Component<{
           <Popover
             content={
               <div className="account-tip">
-                <Link to={'/studio'} className="tip-item">
+                <Link to={Path.studio} className="tip-item">
                   studio
                 </Link>
                 <div className="tip-item logout" onClick={this.logout}>
@@ -51,7 +54,7 @@ class Nav extends React.Component<{
               </div>
             }
           >
-            <div className="username">{username}</div>
+            <Avatar src={avatar} className="username" />
           </Popover>
         </div>
       );
@@ -59,7 +62,9 @@ class Nav extends React.Component<{
     return (
       <div className="nav-container">
         <div className="nav-main">
-          <div className="logo">AcFun</div>
+          <Link className="logo" to={Path.feed}>
+            AcFun
+          </Link>
           {account_dom}
         </div>
       </div>
