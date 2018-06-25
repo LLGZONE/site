@@ -18,8 +18,10 @@
     "start:production": "NODE_ENV=production pm2 start dist/server/app.js --name site",
     "deploy": "pm2 deploy ecosystem.config.js production",
     "format": "prettier-eslint --write public/**/*.{js,ts}",
-    "ts:client": "tsc --watch -p client",
-    "ts:server": "tsc --watch -p server",
+    "watch:client": "tsc --watch -p client",
+    "watch:server": "tsc --watch -p server",
+    "check:client": "tsc -p client",
+    "check:server": "tsc -p server",
     "db:sync": "node ./scripts/sync_db.js"
   },
   "keywords": [],
