@@ -1,5 +1,6 @@
 import { Core } from './core';
 import koaBody from 'koa-body';
+import * as fs from 'fs';
 import cors from '@koa/cors';
 import session from 'koa-session';
 import redisStore from 'koa-redis';
@@ -22,7 +23,7 @@ const session_config = {
 };
 app.use(session(session_config, app));
 // 扩充context
-app.use(async (ctx, next) => {
+app.use(async (ctx: any, next) => {
   const connection = client.sync();
   ctx.models = models;
   ctx.client = client;

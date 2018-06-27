@@ -24,7 +24,11 @@ const store = init({
   } catch (err) {
     user_info = formatUser({});
   }
-  await store.dispatch.user_info.update(user_info);
+  const { dispatch } = store;
+  await store.dispatch({
+    type: 'user_info/update',
+    payload: user_info
+  });
   ReactDOM.render(
     <Provider store={store}>
       <Router>

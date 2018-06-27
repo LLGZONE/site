@@ -1,4 +1,3 @@
-import produce from 'immer';
 export const user_info = {
   state: {},
   reducers: {

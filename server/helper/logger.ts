@@ -10,7 +10,4 @@ log4js.configure({
 const serverLogger = log4js.getLogger('server');
 const clientLogger = log4js.getLogger('client');
 
-export default {
-  serverLogger,
-  clientLogger
-};
+export { serverLogger, clientLogger };
