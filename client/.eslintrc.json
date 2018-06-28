@@ -20,7 +20,8 @@
       "react/jsx-uses-vars": "error",
       "react/jsx-uses-react": "error",
       "react/prop-types": "error",
-      "react/require-default-props": "error"
+      "react/require-default-props": "error",
+      "sort-imports":"error"
   },
   "globals": {
       "Promise": true,

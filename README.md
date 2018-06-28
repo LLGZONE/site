@@ -35,4 +35,5 @@ $ npm run dev:server
 ### Todo 
 1. 服务端渲染
 2. 组件库
-3. rematch/
+3. 编辑器
+4. i18n

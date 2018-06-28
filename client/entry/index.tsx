@@ -5,10 +5,10 @@ import { init } from '@rematch/core';
 import * as URL from 'constants/api/topfeed';
 import NotFound from 'containers/404';
 import http from 'lib/http';
-import Routers from './routes';
-import * as models from './models';
 import formatUser from 'lib/format_user';
 import { Provider } from 'react-redux';
+import Routers from './routes';
+import * as models from './models';
 
 const store = init({
   models

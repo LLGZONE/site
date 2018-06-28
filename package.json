@@ -8,7 +8,7 @@
     "type": "git"
   },
   "scripts": {
-    "precommit": "lint-staged && npm run test",
+    "precommit": "lint-staged && npm run lint",
     "start": "babel-node server/app.ts --extensions '.ts,.js'",
     "build": "babel client --ignore src/**/__tests__ --out-dir dist --extensions '.ts,.tsx'",
     "dev:server": "NODE_ENV=development nodemon  server/app.ts --exec babel-node  --extensions '.ts,.js'",
@@ -18,7 +18,9 @@
     "start:production": "NODE_ENV=production pm2 start dist/server/app.js --name site",
     "deploy": "pm2 deploy ecosystem.config.js production",
     "format": "prettier-eslint --write public/**/*.{js,ts}",
-    "test":"npx tsc -p client  && npx tsc -p server",
+    "lint:client": "npx tsc -p client",
+    "lint:server": "npx tsc -p server",
+    "lint": "npm run lint:client && npm run lint:server",
     "watch:client": "tsc --watch -p client",
     "watch:server": "tsc --watch -p server",
     "db:sync": "node ./scripts/sync_db.js"
