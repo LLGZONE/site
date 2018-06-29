@@ -21,6 +21,14 @@ module.exports = {
       }
     ],
     '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-proposal-class-properties'
+    '@babel/plugin-proposal-class-properties',
+    [
+      'babel-plugin-module-resolver',
+      {
+        cwd: 'babelrc',
+        extensions: ['.ts', '.tsx'],
+        root: ['./']
+      }
+    ]
   ]
 };

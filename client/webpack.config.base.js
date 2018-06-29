@@ -60,7 +60,6 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
-    modules: [path.resolve(__dirname, '.'), 'node_modules'],
     alias: {
       style: path.resolve(__dirname, 'style')
     }
