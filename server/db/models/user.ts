@@ -13,9 +13,16 @@ export default function(sequelize, DataTypes) {
       },
       avatar: {
         type: DataTypes.STRING(64),
-        unique: true,
         allowNull: false,
         defaultValue: ''
+      },
+      language: {
+        type: DataTypes.STRING(32),
+        defaultValue: 'en'
+      },
+      region: {
+        type: DataTypes.STRING(32),
+        defaultValue: 'us'
       }
     },
     {

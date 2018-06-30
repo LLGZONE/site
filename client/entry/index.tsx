@@ -21,7 +21,7 @@ const store = init({
       method: 'GET',
       url: URL.user_info
     });
-    user_info = formatUser(result);
+    user_info = formatUser((result as any).user_info);
   } catch (err) {
     user_info = formatUser({});
   }

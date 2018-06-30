@@ -12,7 +12,10 @@
     "baseUrl": "./",
     "noEmit": true,
     "pretty": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "rootDirs": [
+      
+    ]
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.d.ts"]

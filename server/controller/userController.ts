@@ -1,9 +1,9 @@
 // @ts-check
 export default {
   async user_info(ctx, next) {
-    const username = ctx.session.username;
+    const user = ctx.session.user;
     ctx.success({
-      username
+      user_info: user
     });
   },
   async signup(ctx, next) {
@@ -21,16 +21,17 @@ export default {
   },
   async signin(ctx, next) {
     const { username, password } = ctx.request.body;
-    const result = await ctx.service.user.getUserByLoginName(username);
+    const result = await ctx.service.user.getUserByLoginName(username, true);
+    console.log('result:', result);
     if (password !== result.password) {
       return ctx.fail('密码不正确');
     }
-    ctx.session.username = username;
+    ctx.session.user = result;
     ctx.success();
   },
   async signout(ctx, next) {
     const { username } = ctx.request.body;
-    ctx.session.username = '';
+    ctx.session.user = null;
     ctx.success();
   }
 };

@@ -9,7 +9,7 @@ export default {
     username: 'yj',
     password: 'yjmima',
     port: '3306',
-    logging: true,
+    logging: false,
     host: 'localhost'
   },
   redis: {
