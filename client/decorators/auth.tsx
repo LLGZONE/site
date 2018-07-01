@@ -43,7 +43,6 @@ export default function Auth(
       }
     }
     return connect((state: any) => {
-      console.log('state:', state);
       return {
         user_info: state.user_info
       };

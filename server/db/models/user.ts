@@ -18,11 +18,15 @@ export default function(sequelize, DataTypes) {
       },
       language: {
         type: DataTypes.STRING(32),
-        defaultValue: 'en'
+        defaultValue: ''
       },
       region: {
         type: DataTypes.STRING(32),
-        defaultValue: 'us'
+        defaultValue: ''
+      },
+      description: {
+        type: DataTypes.STRING(128),
+        defaultValue: ''
       }
     },
     {

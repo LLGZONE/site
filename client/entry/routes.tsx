@@ -48,7 +48,7 @@ export default [
   },
   {
     name: 'studio',
-    path: Path.studio,
+    path: `${Path.studio}/*`,
     component: Loadable({
       loader: () =>
         import(/* webpackChunkName: "studio" */ 'containers/studio'),
