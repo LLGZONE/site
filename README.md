@@ -1,8 +1,8 @@
 # site
-最新前端技术栈
+最好的React技术栈
 + Typescript
-+ React
-+ React-Router
++ React
++ @reach/router
 + Immer
 + Rematch
 + SSR
@@ -35,5 +35,5 @@ $ npm run dev:server
 ### Todo 
 1. 服务端渲染
 2. 组件库
-3. 编辑器
+3. 编辑器支持
 4. i18n
