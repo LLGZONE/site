@@ -20,7 +20,6 @@ module.exports = {
         style: 'css'
       }
     ],
-    'dynamic-import-node',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-proposal-class-properties',
     [
