@@ -1,5 +1,4 @@
 import Loadable from 'react-loadable';
-import Loading from 'components/loading';
 import * as Path from 'constants/path';
 
 export default [

@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Editor, EditorState, ContentState } from 'draft-js';
+import { Editor, EditorState } from 'draft-js';
 export interface EditorCoreProps {
   className?: string;
   prefix?: string;

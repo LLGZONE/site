@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Button, Input, Modal, message } from 'antd';
+import { Button, Modal, message } from 'antd';
 import http from 'lib/http';
 import * as URL from 'constants/api/topfeed';
 import LabelInput from 'ui/label-input';

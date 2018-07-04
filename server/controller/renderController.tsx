@@ -5,7 +5,7 @@ import * as models from '../../client/entry/models';
 import App from '../../client/entry/app';
 import * as React from 'react';
 export default {
-  async index(ctx, next) {
+  async index(ctx) {
     const store = init({
       models
     });

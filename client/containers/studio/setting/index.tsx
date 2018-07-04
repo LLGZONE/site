@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Router } from '@reach/router';
+import { Router } from '@reach/router';
 import NavLink from 'ui/nav-link';
 import AccountInfo from './account-info';
 import AccountSetting from './account-setting';

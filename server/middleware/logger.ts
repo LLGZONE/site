@@ -1,6 +1,6 @@
-import { clientLogger } from '../helper/logger';
+//import { clientLogger } from '../helper/logger';
 
-export default async (ctx, next) => {
+export default async (_, next) => {
   //clientLogger.info(ctx);
   await next();
 };

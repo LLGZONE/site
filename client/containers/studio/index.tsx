@@ -3,8 +3,6 @@ import Layout from 'components/layout';
 import { Menu } from 'antd';
 import { Link, Router } from '@reach/router';
 import Auth from 'decorators/auth';
-import * as Path from 'constants/path';
-import Routers from './router';
 import Post from './post';
 import Settings from './setting';
 import './index.less';

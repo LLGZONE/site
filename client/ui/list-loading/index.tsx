@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import './style';
 
 export default class ListLoading extends React.Component<{
@@ -13,7 +12,7 @@ export default class ListLoading extends React.Component<{
     end_text: 'no more content'
   };
   render() {
-    const { is_loading, has_more, loading_text, end_text } = this.props;
+    const { has_more, loading_text, end_text } = this.props;
     return (
       <div className="loading-box">
         {has_more && <div>{loading_text} </div>}

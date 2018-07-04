@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect } from '@reach/router';
 import { connect } from 'react-redux';
-import Layout from 'components/layout';
 import 'style/common.less';
 
 class Home extends React.Component<{

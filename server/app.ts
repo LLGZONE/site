@@ -23,7 +23,7 @@ const session_config = {
 app.use(session(session_config, app));
 // 扩充context
 app.use(async (ctx: any, next) => {
-  const connection = client.sync();
+  client.sync();
   ctx.models = models;
   ctx.client = client;
   ctx.success = (data = {}) => {
@@ -46,4 +46,3 @@ app.use(router.routes()).use(router.allowedMethods());
 app.listen(config.server.port || 3333, () => {
   console.log('start server at port: ', config.server.port);
 });
-const a: string = 'hello';

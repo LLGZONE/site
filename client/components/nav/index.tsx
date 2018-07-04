@@ -5,7 +5,7 @@ import * as Path from 'constants/path';
 import { Avatar } from 'antd';
 //import Avatar from 'components/avatar';
 import { Link } from '@reach/router';
-import { message, Tooltip, Popover } from 'antd';
+import { Popover, message } from 'antd';
 import { connect } from 'react-redux';
 import './index.less';
 
@@ -71,12 +71,12 @@ class Nav extends React.Component<{
     );
   }
 }
-const mapState = state => {
+const mapState = (state: any) => {
   return {
     user_info: state.user_info
   };
 };
-const mapDispatch = state => {
+const mapDispatch = (state: any) => {
   return {
     update: state.user_info.update
   };

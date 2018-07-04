@@ -13,7 +13,7 @@ export default class NavLink extends React.Component<{
   render() {
     return (
       <Link
-        getProps={({ isCurrent, location, href, isPartiallyCurrent }) => {
+        getProps={({ isCurrent }) => {
           const cls = isCurrent
             ? classnames('active', this.props.className)
             : this.props.className;

@@ -1,6 +1,6 @@
 // @ts-check
 export default {
-  async article_list(ctx, next) {
+  async article_list(ctx) {
     const { start = 0, count } = ctx.query;
     const {
       subjects: article_list,

@@ -1,9 +1,9 @@
 import axios from 'axios';
-interface ServerResponse {
+export interface ServerResponse {
   data: ServerData;
 }
 
-interface ServerData {
+export interface ServerData {
   foo: string;
   bar: number;
 }

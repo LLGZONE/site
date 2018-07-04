@@ -1,8 +1,8 @@
 import React from 'react';
-import { message, Rate } from 'antd';
+import { Rate } from 'antd';
 import * as Path from 'constants/path';
 import { Link, navigate } from '@reach/router';
-import LoadMore, { ResponseProps } from 'ui/loadmore';
+import LoadMore from 'ui/loadmore';
 import Layout from 'components/layout';
 import http from 'lib/http';
 import LazyLoad from 'react-lazyload';
@@ -39,7 +39,7 @@ class Feed extends React.Component<
   };
   renderChannel() {
     return Object.entries(channels).map(([key, value]) => (
-      <Link to={`${Path.feed}/${key}`}>value</Link>
+      <Link to={`${Path.feed}/${key}`}>{value}</Link>
     ));
   }
   renderList(article_list) {
