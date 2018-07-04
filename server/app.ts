@@ -1,6 +1,5 @@
 import { Core } from './core';
 import koaBody from 'koa-body';
-import * as fs from 'fs';
 import cors from '@koa/cors';
 import session from 'koa-session';
 import redisStore from 'koa-redis';

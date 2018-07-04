@@ -8,6 +8,7 @@ module.exports = {
         }
       }
     ],
+    '@babel/react',
     '@babel/typescript'
   ],
   plugins: [
