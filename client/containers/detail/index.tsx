@@ -29,6 +29,6 @@ export default class Detail extends React.Component<{
     }
   }
   render() {
-    return <div>thioislsss</div>;
+    return <div>detdddail</div>;
   }
 }

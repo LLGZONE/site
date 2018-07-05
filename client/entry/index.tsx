@@ -28,6 +28,7 @@ const store = init({
     type: 'user_info/update',
     payload: user_info
   });
+
   ReactDOM.render(
     <Provider store={store}>
       <App />
