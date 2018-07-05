@@ -10,14 +10,6 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: '[name].js'
   },
-  devServer: {
-    host: '0.0.0.0',
-    hot: false,
-    inline: false,
-    port: 4001,
-    disableHostCheck: true,
-    historyApiFallback: true
-  },
   module: {
     rules: [
       {
@@ -55,7 +47,7 @@ module.exports = {
       filename: '[name]'
     }),
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: './index.html'
     })
   ],
   resolve: {
