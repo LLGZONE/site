@@ -4,6 +4,7 @@ import * as URL from 'constants/api/topfeed';
 import { Button, Input, message } from 'antd';
 import Layout from 'components/layout';
 import './index.less';
+import { FormattedMessage } from 'react-intl';
 export default class Sign extends React.Component<
   {
     type?: 'signin' | 'signup';
@@ -93,7 +94,11 @@ export default class Sign extends React.Component<
               className="submit-btn"
               onClick={this.sign_type === 'signup' ? this.signup : this.signin}
             >
-              {this.sign_type === 'signup' ? '注册' : '登录'}
+              {this.sign_type === 'signup' ? (
+                <FormattedMessage id="signup" />
+              ) : (
+                <FormattedMessage id="signin" />
+              )}
             </Button>
           </div>
         </div>

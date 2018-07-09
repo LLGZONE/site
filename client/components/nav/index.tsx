@@ -6,11 +6,15 @@ import { Avatar } from 'antd';
 //import Avatar from 'components/avatar';
 import { Link } from '@reach/router';
 import { Popover, message } from 'antd';
+import { FormattedMessage } from 'react-intl';
+import { Select } from 'antd';
 import { connect } from 'react-redux';
 import './index.less';
 
 class Nav extends React.Component<{
   user_info: any;
+  locale: string;
+  update_locale: (locale: string) => void;
 }> {
   logout = () => {
     http({
@@ -25,17 +29,22 @@ class Nav extends React.Component<{
       }
     );
   };
+  changeLocale = value => {
+    const { update_locale } = this.props;
+    update_locale(value);
+  };
   render() {
     const { username, avatar } = this.props.user_info;
+    const { locale } = this.props;
     let account_dom = null;
     if (!username) {
       account_dom = (
         <div className="account-container">
           <a className="signin" href="/signin">
-            登录
+            <FormattedMessage id="signin" />
           </a>
           <a className="signup" href="/signup">
-            注册
+            <FormattedMessage id="signup" />
           </a>
         </div>
       );
@@ -46,10 +55,10 @@ class Nav extends React.Component<{
             content={
               <div className="account-tip">
                 <Link to={Path.studio} className="tip-item">
-                  studio
+                  <FormattedMessage id="studio" />
                 </Link>
                 <div className="tip-item logout" onClick={this.logout}>
-                  登出
+                  <FormattedMessage id="signout" />
                 </div>
               </div>
             }
@@ -65,7 +74,17 @@ class Nav extends React.Component<{
           <Link className="logo" to={Path.feed}>
             AcFun
           </Link>
-          {account_dom}
+          <div className="nav-right">
+            {account_dom}
+            <Select
+              className="select-lang"
+              onChange={this.changeLocale}
+              defaultValue={locale}
+            >
+              <Select.Option value={'en'}>en</Select.Option>
+              <Select.Option value={'zh'}>zh</Select.Option>
+            </Select>
+          </div>
         </div>
       </div>
     );
@@ -73,12 +92,14 @@ class Nav extends React.Component<{
 }
 const mapState = (state: any) => {
   return {
-    user_info: state.user_info
+    user_info: state.user_info,
+    locale: state.locale.locale
   };
 };
 const mapDispatch = (state: any) => {
   return {
-    update: state.user_info.update
+    update_userinfo: state.user_info.update,
+    update_locale: state.locale.update_locale
   };
 };
 
