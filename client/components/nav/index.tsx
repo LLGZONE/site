@@ -8,6 +8,7 @@ import { Link } from '@reach/router';
 import { Popover, message } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { Select } from 'antd';
+import Icon from 'ui/icon';
 import { connect } from 'react-redux';
 import './index.less';
 
@@ -72,7 +73,7 @@ class Nav extends React.Component<{
       <div className="nav-container">
         <div className="nav-main">
           <Link className="logo" to={Path.feed}>
-            <FormattedMessage id="logo_name" />
+            <Icon type="quora" />
           </Link>
           <div className="nav-right">
             {account_dom}
