@@ -2,9 +2,8 @@ import * as React from 'react';
 import Routers from './routes';
 import { Router } from '@reach/router';
 import NotFound from 'containers/404';
-import { hot } from 'react-hot-loader';
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <Router>
@@ -16,4 +15,3 @@ class App extends React.Component {
     );
   }
 }
-export default hot(module)(App);
