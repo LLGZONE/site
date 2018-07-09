@@ -72,7 +72,7 @@ class Nav extends React.Component<{
       <div className="nav-container">
         <div className="nav-main">
           <Link className="logo" to={Path.feed}>
-            AcFun
+            <FormattedMessage id="logo_name" />
           </Link>
           <div className="nav-right">
             {account_dom}
