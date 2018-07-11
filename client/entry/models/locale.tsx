@@ -7,6 +7,9 @@ export const locale = {
     locale: 'en'
   },
   reducers: {
+    '@init': (state, init) => {
+      return { ...state, ...init };
+    },
     update_locale(state, locale) {
       const isEn = locale === 'en';
       if (isEn) {
