@@ -74,6 +74,9 @@ class Nav extends React.Component<{
         <div className="nav-main">
           <Link className="logo" to={Path.feed}>
             <Icon type="quora" />
+            <div className="logo-name">
+              <FormattedMessage id="logo_name" />
+            </div>
           </Link>
           <div className="nav-right">
             {account_dom}
