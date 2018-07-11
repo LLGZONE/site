@@ -13,9 +13,10 @@
 + Mysql （数据库）
 + Redis （缓存）
 + prettier (自动代码格式化，统一格式风格)
-+ eslint&&tslint&&stylelint&&htmllint (语法检测)
++ eslint&&tslint&&stylelint&&htmllint (语法检测)
 + husky (precomit hooks,只对提交到的代码进行处理)
 + antd （UI库）
++ nginx (反向代理)
 
 ### Dev for mac
 ```shell
