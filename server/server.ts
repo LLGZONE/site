@@ -1,3 +1,6 @@
+/**
+ * 服务器业务逻辑
+ */
 import { Core } from './core';
 import koaBody from 'koa-body';
 import cors from '@koa/cors';
