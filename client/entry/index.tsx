@@ -25,7 +25,7 @@ const store = init({
     user_info = formatUser({});
   }
   // 临时方案，rematch暂时不支持initial_props
-  await store.dispatch({
+  store.dispatch({
     type: 'user_info/update',
     payload: user_info
   });
