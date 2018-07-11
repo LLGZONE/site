@@ -15,6 +15,7 @@
     "build:server": "BABEL_ENV=server NODE_ENV=production babel server -d dist/server",
     "dev:client": "BABEL_ENV=client NODE_ENV=development webpack-dev-server --config client/webpack.config.dev.js",
     "build:client": "BABEL_ENV=client NODE_ENV=production webpack -p --config client/webpack.config.prod.js",
+    "ssr:client": "BABEL_ENV=server NODE_ENV=production webpack --watch --config client/webpack.config.ssr.js",
     "debug:client":"BABEL_ENV=client NODE_ENV=development node --inspect-brk ./node_modules/.bin/webpack-dev-server --config client/webpack.config.dev.js",
     "start:production": "NODE_ENV=production pm2 start dist/server/app.js --name site",
     "deploy": "pm2 deploy ecosystem.config.js production",
