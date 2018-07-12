@@ -8,13 +8,19 @@ import session from 'koa-session';
 import redisStore from 'koa-redis';
 import errorHandle from './middleware/errorHandler';
 import logger from './middleware/logger';
+import ssrPlugin from './plugin/ssr';
 import router from './router';
 import { client, models } from './db';
 import config from './config';
 const app = new Core();
+app.use(async (ctx: any, next) => {
+  ctx.config = config;
+  await next();
+});
 // 注册中间件
 app.use(errorHandle);
 app.use(logger);
+ssrPlugin(app);
 app.on('error', err => {
   console.log('app err:', err);
 });
