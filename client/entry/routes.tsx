@@ -39,7 +39,7 @@ export default [
   },
   {
     name: 'detail',
-    path: '/a/:item_id',
+    path: '/detail',
     component: Loadable({
       loader: () =>
         import(/* webpackChunkName: "detail" */ 'containers/detail'),

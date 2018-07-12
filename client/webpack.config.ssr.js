@@ -1,13 +1,23 @@
 const baseConfig = require('./webpack.config.base');
 const merge = require('webpack-merge');
 const path = require('path');
-module.exports = merge(baseConfig, {
+const webpack = require('webpack');
+const ssrConfig = merge(baseConfig, {
+  mode: 'development',
   output: {
-    path: path.resolve(__dirname, '../dist/ssr')
+    path: path.resolve(__dirname, '../dist/ssr'),
+    libraryTarget: 'commonjs2'
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      IS_NODE: true
+    })
+  ],
   target: 'node',
   node: {
     __filename: true,
     __dirname: true
   }
 });
+
+module.exports = ssrConfig;

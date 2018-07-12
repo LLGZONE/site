@@ -14,14 +14,17 @@ class App extends React.Component<{
   render() {
     const { messages, locale } = this.props;
     return (
-      <IntlProvider locale={locale} messages={messages} key={locale}>
-        <Router>
-          {Routers.map(({ name, path, component: Component }) => {
-            return <Component key={name} path={path} />;
-          })}
-          <NotFound default />
-        </Router>
-      </IntlProvider>
+      <div>
+        <div onClick={() => console.log('client')}>ssr render</div>
+        <IntlProvider locale={locale} messages={messages} key={locale}>
+          <Router>
+            {Routers.map(({ name, path, component: Component }) => {
+              return <Component key={name} path={path} />;
+            })}
+            <NotFound default />
+          </Router>
+        </IntlProvider>
+      </div>
     );
   }
 }

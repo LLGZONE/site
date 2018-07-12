@@ -14,6 +14,16 @@ module.exports = {
   plugins: [
     'add-module-exports',
     '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-proposal-class-properties'
+    '@babel/plugin-proposal-class-properties',
+    [
+      'babel-plugin-module-resolver',
+      {
+        cwd: 'babelrc',
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        alias: {
+          ssr: '../dist/ssr'
+        }
+      }
+    ]
   ]
 };

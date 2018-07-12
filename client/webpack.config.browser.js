@@ -1,11 +1,19 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractKeyPlugin = require('./plugins/extract-keys');
+const webpack = require('webpack');
 module.exports = {
   entry: {
     main: ['@babel/polyfill', './entry']
   },
   context: __dirname,
+  output: {
+    path: path.resolve(__dirname, '../dist/client'),
+    publicPath: '/',
+    filename: '[name].js',
+    chunkFilename: '[name].js'
+  },
   module: {
     rules: [
       {
@@ -36,13 +44,17 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      IS_NODE: false
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
     new HtmlWebpackPlugin({
       template: './index.html'
-    })
+    }),
+    new ExtractKeyPlugin()
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],

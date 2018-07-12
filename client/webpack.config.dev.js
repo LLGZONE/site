@@ -1,10 +1,7 @@
-const baseConfig = require('./webpack.config.base');
+const baseConfig = require('./webpack.config.browser');
 const merge = require('webpack-merge');
 module.exports = merge(baseConfig, {
   mode: 'development',
-  output: {
-    filename: '[name].js'
-  },
   devtool: 'source-map',
   devServer: {
     host: '0.0.0.0',

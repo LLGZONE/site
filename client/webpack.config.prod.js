@@ -1,6 +1,6 @@
 const merge = require('webpack-merge');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
-const baseConfig = require('./webpack.config.base');
+const baseConfig = require('./webpack.config.browser');
 module.exports = merge(baseConfig, {
   mode: 'production',
   output: {
