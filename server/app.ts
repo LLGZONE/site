@@ -54,7 +54,7 @@ export function startCluster() {
   console.log(`Started cluster with ${processes} processes.`);
 }
 
-if (cluster.isMaster && processes > 1) {
+if (false) {
   startCluster();
 } else {
   startServer();
