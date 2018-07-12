@@ -6,17 +6,17 @@
 + Immer （不可变数据，处理复杂对象的更新）
 + Rematch （状态管理，更好的redux，less code，更好的async处理）
 + SSR （首屏加速和SEO优化）
-+ I18n && L10n （国际化和本地化支持）
-+ GraphQL （更友好的api支持）
++ React-intl && moment（国际化和本地化支持）
 + Koa2 （路由和渲染）
 + Webpack （打包工具）
-+ Mysql （数据库）
-+ Redis （缓存）
 + prettier (自动代码格式化，统一格式风格)
 + eslint&&tslint&&stylelint&&htmllint (语法检测)
 + husky (precomit hooks,只对提交到的代码进行处理)
-+ antd （UI库）
-+ nginx (反向代理)
++ antd （optional,UI库）
++ Mysql （optional,数据库）
++ GraphQL （optional,更友好的api支持）
++ Redis （optional,缓存）
++ nginx (optional,反向代理)
 
 ### Dev for mac
 ```shell
