@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const ssrConfig = merge(baseConfig, {
   mode: 'development',
   output: {
-    path: path.resolve(__dirname, '../dist/ssr'),
+    path: path.resolve(__dirname, '../server/public'),
     libraryTarget: 'commonjs2'
   },
   plugins: [

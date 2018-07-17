@@ -10,22 +10,16 @@ export default {
     const store = init({
       models
     });
-    ctx.body = ReactServerDOM.renderToStaticMarkup(
-      <html>
-        <div
-          id="root"
-          dangerouslySetInnerHTML={{
-            __html: ReactServerDOM.renderToString(
-              <ServerLocation url={ctx.url}>
-                <Provider store={store}>
-                  <App />
-                </Provider>
-              </ServerLocation>
-            )
-          }}
-        />
-        <script src="/main.js" />
-      </html>
+    const html = ReactServerDOM.renderToString(
+      <ServerLocation url={ctx.url}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ServerLocation>
     );
+    console.log('html:', html);
+    await ctx.render('home', {
+      html
+    });
   }
 };
