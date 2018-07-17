@@ -12,6 +12,7 @@ module.exports = {
     '@babel/typescript'
   ],
   plugins: [
+    'react-loadable/babel',
     [
       'import',
       {

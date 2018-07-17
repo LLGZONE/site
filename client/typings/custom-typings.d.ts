@@ -3,3 +3,6 @@ declare module '*.json' {
   export default value;
 }
 declare var IS_NODE: boolean;
+declare interface Window {
+  __INITIAL_STATE__: any;
+}

@@ -1,25 +1,49 @@
 import ReactServerDOM from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { ServerLocation } from '@reach/router';
+import Loadable from 'react-loadable';
+import { getBundles } from 'react-loadable/webpack';
 import { init } from '@rematch/core';
 import * as models from '../../client/entry/models';
-import App from '../../dist/ssr/main';
+import App from '../public/main';
+import stats from '../public/react-loadable.json';
 import * as React from 'react';
+
 export default {
   async index(ctx) {
     const store = init({
       models
     });
+    let modules = [];
     const html = ReactServerDOM.renderToString(
-      <ServerLocation url={ctx.url}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </ServerLocation>
+      <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+        <ServerLocation url={ctx.url}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </ServerLocation>
+      </Loadable.Capture>
     );
-    console.log('html:', html);
+    let bundles = getBundles(stats, modules);
+    const styles = bundles
+      .filter(bundle => bundle && bundle.file.endsWith('.css'))
+      .map(bundle => `<link rel="stylesheet" href="/${bundle.file}" />`)
+      .join('\n');
+    const scripts = bundles
+      .filter(bundle => bundle && bundle.file.endsWith('.js'))
+      .map(
+        bundle =>
+          `<script type="text/javascript" src="/${bundle.file}"></script>`
+      )
+      .join('\n');
+
+    const initial_state = store.getState();
+    console.log('initial_state:', initial_state);
     await ctx.render('home', {
-      html
+      html,
+      initial_state: JSON.stringify(initial_state),
+      scripts,
+      styles
     });
   }
 };

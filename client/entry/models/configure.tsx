@@ -5,7 +5,6 @@ export default function configure(init_props) {
   const store = init({
     models
   });
-  console.log('models:', models);
   for (const model of Object.keys(models)) {
     store.dispatch({
       type: `${model}/@init`,
