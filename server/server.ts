@@ -65,6 +65,12 @@ app.use(async (ctx: any, next) => {
   };
   await next();
 });
+// 挂载用户信息
+app.use(async (ctx: any, next) => {
+  ctx.user_info = ctx.session.user || {};
+  await next();
+});
+
 // 注册路由
 app.use(router.routes()).use(router.allowedMethods());
 

@@ -3,16 +3,15 @@ import { Provider } from 'react-redux';
 import { ServerLocation } from '@reach/router';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
-import { init } from '@rematch/core';
-import * as models from '../../client/entry/models';
+import configureStore from '../../client/entry/models/configure';
 import App from '../public/main';
 import stats from '../public/react-loadable.json';
 import * as React from 'react';
 
 export default {
   async index(ctx) {
-    const store = init({
-      models
+    const store = configureStore({
+      user_info: ctx.user_info
     });
     let modules = [];
     const html = ReactServerDOM.renderToString(
@@ -38,7 +37,6 @@ export default {
       .join('\n');
 
     const initial_state = store.getState();
-    console.log('initial_state:', initial_state);
     await ctx.render('home', {
       html,
       initial_state: JSON.stringify(initial_state),
