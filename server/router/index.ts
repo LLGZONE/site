@@ -15,7 +15,7 @@ router.post(api.signout, userController.signout);
 router.get(api.article_list, articleController.article_list);
 
 // 前端路由
-router.get('*', renderController.index);
+router.get('*', renderController.main);
 router.stack.forEach(element => {
   console.log(element.path, element.methods);
 });

@@ -2,7 +2,7 @@ import ReactServerDOM from 'react-dom/server';
 import { isRedirect } from '@reach/router';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
-import configureStore from '../../client/entry/models/configure';
+import configureStore from '../../client/entry/main/models/configure';
 import App from '../public/main';
 import stats from '../public/react-loadable.json';
 import * as React from 'react';
@@ -13,7 +13,7 @@ function getStyle(src) {
   return `<link rel="stylesheet" href="/${src}" />`;
 }
 export default {
-  async index(ctx) {
+  async main(ctx) {
     const store = configureStore({
       user_info: ctx.user_info
     });
@@ -45,7 +45,7 @@ export default {
       .join('\n');
     const entry_scripts = getScript('main.js');
     const initial_state = store.getState();
-    await ctx.render('home', {
+    await await ctx.render('home', {
       html,
       initial_state: JSON.stringify(initial_state),
       entry_scripts,
