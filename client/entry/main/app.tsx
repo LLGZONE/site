@@ -15,7 +15,7 @@ class App extends React.Component<{
     const { messages, locale } = this.props;
     return (
       <IntlProvider locale={locale} messages={messages} key={locale}>
-        <Router>
+        <Router basepath="/studio">
           {Routers.map(({ name, path, component: Component }) => {
             return <Component key={name} path={path} />;
           })}

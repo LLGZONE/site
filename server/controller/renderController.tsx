@@ -2,16 +2,11 @@ import ReactServerDOM from 'react-dom/server';
 import { isRedirect } from '@reach/router';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
+import { getScript, getStyle } from '../lib/bundle';
 import configureStore from '../../client/entry/main/models/configure';
 import App from '../public/main';
 import stats from '../public/react-loadable.json';
 import * as React from 'react';
-function getScript(src) {
-  return `<script type="text/javascript" src="/${src}"></script>`;
-}
-function getStyle(src) {
-  return `<link rel="stylesheet" href="/${src}" />`;
-}
 export default {
   async main(ctx) {
     const store = configureStore({
@@ -45,7 +40,7 @@ export default {
       .join('\n');
     const entry_scripts = getScript('main.js');
     const initial_state = store.getState();
-    await await ctx.render('home', {
+    await ctx.render('home', {
       html,
       initial_state: JSON.stringify(initial_state),
       entry_scripts,

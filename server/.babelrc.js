@@ -19,10 +19,7 @@ module.exports = {
       'babel-plugin-module-resolver',
       {
         cwd: 'babelrc',
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],
-        alias: {
-          ssr: '../dist/ssr'
-        }
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
       }
     ]
   ]
