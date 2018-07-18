@@ -8,6 +8,7 @@ module.exports = merge(baseConfig, {
     hot: false,
     inline: false,
     port: 4001,
-    disableHostCheck: true
+    disableHostCheck: true,
+    historyApiFallback: true
   }
 });

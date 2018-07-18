@@ -12,6 +12,7 @@ import errorHandle from './middleware/errorHandler';
 import logger from './middleware/logger';
 import ssrPlugin from './plugin/ssr';
 import router from './router';
+import Loadable from 'react-loadable';
 import { client, models } from './db';
 import config from './config';
 const app = new Core();
@@ -74,7 +75,8 @@ app.use(async (ctx: any, next) => {
 // 注册路由
 app.use(router.routes()).use(router.allowedMethods());
 
-export function startServer() {
+export async function startServer() {
+  await Loadable.preloadAll();
   app.listen(config.server.port || 3333, () => {
     console.log('start server at port: ', config.server.port);
   });

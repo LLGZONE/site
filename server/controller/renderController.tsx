@@ -1,45 +1,54 @@
 import ReactServerDOM from 'react-dom/server';
-import { Provider } from 'react-redux';
-import { ServerLocation } from '@reach/router';
+import { isRedirect } from '@reach/router';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import configureStore from '../../client/entry/models/configure';
 import App from '../public/main';
 import stats from '../public/react-loadable.json';
 import * as React from 'react';
-
+function getScript(src) {
+  return `<script type="text/javascript" src="/${src}"></script>`;
+}
+function getStyle(src) {
+  return `<link rel="stylesheet" href="/${src}" />`;
+}
 export default {
   async index(ctx) {
     const store = configureStore({
       user_info: ctx.user_info
     });
     let modules = [];
-    const html = ReactServerDOM.renderToString(
-      <Loadable.Capture report={moduleName => modules.push(moduleName)}>
-        <ServerLocation url={ctx.url}>
-          <Provider store={store}>
-            <App />
-          </Provider>
-        </ServerLocation>
-      </Loadable.Capture>
-    );
+    let html = '';
+    try {
+      html = ReactServerDOM.renderToString(
+        <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+          <App url={ctx.url} store={store} />
+        </Loadable.Capture>
+      );
+    } catch (err) {
+      if (isRedirect(err)) {
+        console.log('err:', err);
+        ctx.redirect(err.uri);
+      } else {
+        html = '';
+      }
+    }
+
     let bundles = getBundles(stats, modules);
     const styles = bundles
       .filter(bundle => bundle && bundle.file.endsWith('.css'))
-      .map(bundle => `<link rel="stylesheet" href="/${bundle.file}" />`)
+      .map(bundle => getStyle(bundle.file))
       .join('\n');
     const scripts = bundles
       .filter(bundle => bundle && bundle.file.endsWith('.js'))
-      .map(
-        bundle =>
-          `<script type="text/javascript" src="/${bundle.file}"></script>`
-      )
+      .map(bundle => getScript(bundle.file))
       .join('\n');
-
+    const entry_scripts = getScript('main.js');
     const initial_state = store.getState();
     await ctx.render('home', {
       html,
       initial_state: JSON.stringify(initial_state),
+      entry_scripts,
       scripts,
       styles
     });
