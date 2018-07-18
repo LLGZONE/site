@@ -14,9 +14,9 @@ class Home extends React.Component<{
   render() {
     const { user_info } = this.props;
     if (user_info.username) {
-      return <Redirect to="/feed" noThrow />;
+      return <Redirect to="/studio/feed" noThrow />;
     } else {
-      return <Redirect to="/signin" noThrow />;
+      return <Redirect to="/studio/signin" noThrow />;
     }
   }
 }
