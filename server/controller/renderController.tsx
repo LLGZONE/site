@@ -21,6 +21,7 @@ export default {
         </Loadable.Capture>
       );
     } catch (err) {
+      console.log('err:', err);
       if (isRedirect(err)) {
         console.log('err:', err);
         ctx.redirect(err.uri);

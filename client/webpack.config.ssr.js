@@ -2,6 +2,7 @@ const baseConfig = require('./webpack.config.base');
 const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
+const cleanWebpackPlugin = require('clean-webpack-plugin');
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 const outputDir = path.resolve(__dirname, '../server/public');
 const ssrConfig = merge(baseConfig, {
@@ -12,6 +13,7 @@ const ssrConfig = merge(baseConfig, {
     libraryTarget: 'commonjs2'
   },
   plugins: [
+    new cleanWebpackPlugin(outputDir),
     new webpack.DefinePlugin({
       IS_NODE: true
     }),
