@@ -28,8 +28,8 @@ export default {
         html = '';
       }
     }
-
     let bundles = getBundles(stats, modules);
+    console.log('bundles:', bundles);
     const styles = bundles
       .filter(bundle => bundle && bundle.file.endsWith('.css'))
       .map(bundle => getStyle(bundle.file))
@@ -38,12 +38,10 @@ export default {
       .filter(bundle => bundle && bundle.file.endsWith('.js'))
       .map(bundle => getScript(bundle.file))
       .join('\n');
-    const entry_scripts = getScript('main.js');
     const initial_state = store.getState();
     await ctx.render('home', {
       html,
       initial_state: JSON.stringify(initial_state),
-      entry_scripts,
       scripts,
       styles
     });
