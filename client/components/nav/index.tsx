@@ -6,7 +6,7 @@ import { Avatar } from 'antd';
 //import Avatar from 'components/avatar';
 import { Link } from '@reach/router';
 import { Popover, message } from 'antd';
-import { FormattedMessage } from 'react-intl';
+import intl from 'react-intl-universal';
 import { Select } from 'antd';
 import Icon from 'ui/icon';
 import { connect } from 'react-redux';
@@ -42,10 +42,10 @@ class Nav extends React.Component<{
       account_dom = (
         <div className="account-container">
           <a className="signin" href="/signin">
-            <FormattedMessage id="signin" />
+            {intl.get('signin')}
           </a>
           <a className="signup" href="/signup">
-            <FormattedMessage id="signup" />
+            {intl.get('signup')}
           </a>
         </div>
       );
@@ -56,10 +56,10 @@ class Nav extends React.Component<{
             content={
               <div className="account-tip">
                 <Link to={Path.studio} className="tip-item">
-                  <FormattedMessage id="studio" />
+                  {intl.get('studio')}
                 </Link>
                 <div className="tip-item logout" onClick={this.logout}>
-                  <FormattedMessage id="signout" />
+                  {intl.get('signout')}
                 </div>
               </div>
             }
@@ -74,9 +74,7 @@ class Nav extends React.Component<{
         <div className="nav-main">
           <Link className="logo" to={Path.feed}>
             <Icon type="quora" />
-            <div className="logo-name">
-              <FormattedMessage id="logo_name" />
-            </div>
+            <div className="logo-name">{intl.get('logo_name')}</div>
           </Link>
           <div className="nav-right">
             {account_dom}

@@ -3,5 +3,7 @@
   "signup": "注册",
   "signin": "登录",
   "signout": "登出",
-  "logo_name": "知道"
+  "logo_name": "知道",
+  "login_success": "登录成功",
+  "login_fail": "登录失败"
 }

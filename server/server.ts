@@ -10,6 +10,7 @@ import redisStore from 'koa-redis';
 const koaNunjucks = require('koa-nunjucks-2');
 import errorHandle from './middleware/errorHandler';
 import logger from './middleware/logger';
+import locale from './middleware/locale';
 import webpackPlugin from './plugin/webpack';
 import router from './router';
 import Loadable from 'react-loadable';
@@ -34,6 +35,7 @@ app.use(async (ctx: any, next) => {
 // 注册中间件
 app.use(errorHandle);
 app.use(logger);
+app.use(locale());
 webpackPlugin(app);
 app.on('error', err => {
   console.log('app err:', err);

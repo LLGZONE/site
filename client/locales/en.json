@@ -3,5 +3,7 @@
   "signin": "signin",
   "signup": "signup",
   "signout": "signout",
-  "logo_name": "You know"
+  "logo_name": "You know",
+  "login_success": "login success",
+  "login_fail": "login fail"
 }

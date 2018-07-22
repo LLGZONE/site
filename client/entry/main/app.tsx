@@ -3,25 +3,34 @@ import Routers from './routes';
 import { Router } from '@reach/router';
 import NotFound from 'containers/404';
 import { connect } from 'react-redux';
-import { IntlProvider, addLocaleData } from 'react-intl';
-import cnLocaleData from 'react-intl/locale-data/zh';
-addLocaleData(cnLocaleData);
+import intl from 'react-intl-universal';
+import IntlPolyfill from 'intl';
+global.Intl = IntlPolyfill;
+import('intl/locale-data/jsonp/en.js');
+import('intl/locale-data/jsonp/zh.js');
 
 class App extends React.Component<{
   messages: { [key: string]: string };
   locale: 'en' | 'zh';
 }> {
+  constructor(props) {
+    super(props);
+    const currentLocale = this.props.locale;
+    intl.init({
+      currentLocale,
+      locales: {
+        [currentLocale]: this.props.messages
+      }
+    });
+  }
   render() {
-    const { messages, locale } = this.props;
     return (
-      <IntlProvider locale={locale} messages={messages} key={locale}>
-        <Router basepath="/studio">
-          {Routers.map(({ name, path, component: Component }) => {
-            return <Component key={name} path={path} />;
-          })}
-          <NotFound default />
-        </Router>
-      </IntlProvider>
+      <Router basepath="/studio">
+        {Routers.map(({ name, path, component: Component }) => {
+          return <Component key={name} path={path} />;
+        })}
+        <NotFound default />
+      </Router>
     );
   }
 }

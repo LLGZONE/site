@@ -3,8 +3,9 @@ import http from 'lib/http';
 import * as URL from 'constants/api/topfeed';
 import { Button, Input, message } from 'antd';
 import Layout from 'components/layout';
+import intl from 'react-intl-universal';
 import './index.less';
-import { FormattedMessage } from 'react-intl';
+
 export default class Sign extends React.Component<
   {
     type?: 'signin' | 'signup';
@@ -57,13 +58,13 @@ export default class Sign extends React.Component<
       }
     }).then(
       () => {
-        message.success('登录成功');
+        message.success(intl.get('login_success'));
         setTimeout(() => {
           location.href = '/';
         }, 1000);
       },
       () => {
-        message.error('登录失败');
+        message.error('login_fail');
       }
     );
   };
@@ -94,11 +95,9 @@ export default class Sign extends React.Component<
               className="submit-btn"
               onClick={this.sign_type === 'signup' ? this.signup : this.signin}
             >
-              {this.sign_type === 'signup' ? (
-                <FormattedMessage id="signup" />
-              ) : (
-                <FormattedMessage id="signin" />
-              )}
+              {this.sign_type === 'signup'
+                ? intl.get('signup')
+                : intl.get('signin')}
             </Button>
           </div>
         </div>

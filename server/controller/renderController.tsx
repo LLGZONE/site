@@ -10,7 +10,11 @@ import * as React from 'react';
 export default {
   async main(ctx) {
     const store = configureStore({
-      user_info: ctx.user_info
+      user_info: ctx.user_info,
+      locale: {
+        locale: ctx.locale,
+        messages: ctx.messages
+      }
     });
     let modules = [];
     let html = '';

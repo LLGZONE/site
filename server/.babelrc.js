@@ -19,6 +19,9 @@ module.exports = {
       'babel-plugin-module-resolver',
       {
         cwd: 'babelrc',
+        alias: {
+          locales: '../client/locales'
+        },
         extensions: ['.ts', '.tsx', '.js', '.jsx']
       }
     ]
