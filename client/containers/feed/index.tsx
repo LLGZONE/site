@@ -7,7 +7,6 @@ import Layout from 'components/layout';
 import http from 'lib/http';
 import LazyLoad from 'react-lazyload';
 import * as URL from 'constants/api/topfeed';
-import Auth from 'decorators/auth';
 import './index.less';
 import channels from './channel';
 
@@ -76,4 +75,4 @@ class Feed extends React.Component<
   }
 }
 
-export default Auth({ checkLogin: true })(Feed);
+export default Feed;

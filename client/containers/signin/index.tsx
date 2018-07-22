@@ -1,6 +1,5 @@
 import React from 'react';
 import Sign from 'components/sign';
-import Auth from 'decorators/auth';
 
 class SignIn extends React.Component {
   render() {
@@ -8,4 +7,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default Auth({ checkNotLogin: true })(SignIn);
+export default SignIn;

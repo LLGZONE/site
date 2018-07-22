@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from 'components/layout';
 import { Menu } from 'antd';
 import { Link, Router } from '@reach/router';
-import Auth from 'decorators/auth';
 import Post from './post';
 import Settings from './setting';
 import './index.less';
@@ -34,4 +33,4 @@ class Studio extends React.Component {
   }
 }
 
-export default Auth({ checkLogin: true })(Studio);
+export default Studio;

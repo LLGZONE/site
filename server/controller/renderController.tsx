@@ -29,7 +29,6 @@ export default {
       }
     }
     let bundles = getBundles(stats, modules);
-    console.log('bundles:', bundles);
     const styles = bundles
       .filter(bundle => bundle && bundle.file.endsWith('.css'))
       .map(bundle => getStyle(bundle.file))
