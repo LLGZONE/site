@@ -1,6 +1,8 @@
 import React from 'react';
 import http from 'lib/http';
 import * as URL from 'constants/api/topfeed';
+import Demo from './demo';
+import Nav from '../../components/nav';
 
 export default class Detail extends React.Component<{
   item_id: string;
@@ -29,6 +31,12 @@ export default class Detail extends React.Component<{
     }
   }
   render() {
-    return <div>this is detail</div>;
+    return (
+      <div>
+        <Demo />
+        <div>this is bad demo</div>
+        <Nav />
+      </div>
+    );
   }
 }

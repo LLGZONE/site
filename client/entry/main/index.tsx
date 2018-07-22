@@ -11,8 +11,8 @@ if (!IS_NODE) {
   // 客户端渲染
   const initial_state = (window as any).__INITIAL_STATE__;
   const store = configureStore(initial_state);
-  Loadable.preloadAll().then(() => {
-    ReactDOM.render(
+  Loadable.preloadReady().then(() => {
+    ReactDOM.hydrate(
       <Provider store={store}>
         <App />
       </Provider>,

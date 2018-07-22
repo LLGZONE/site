@@ -24,7 +24,7 @@ module.exports = api => {
           style: 'css'
         }
       ],
-      '@babel/plugin-syntax-dynamic-import',
+      'dynamic-import-node',
       '@babel/plugin-proposal-class-properties',
       [
         'babel-plugin-module-resolver',

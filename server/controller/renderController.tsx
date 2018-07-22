@@ -23,7 +23,6 @@ export default {
     } catch (err) {
       console.log('err:', err);
       if (isRedirect(err)) {
-        console.log('err:', err);
         ctx.redirect(err.uri);
       } else {
         html = '';
