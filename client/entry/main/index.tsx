@@ -1,24 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Loadable from 'react-loadable';
-import { Provider } from 'react-redux';
+import * as React from 'react';
+import Routers from './routes';
+import { Router } from '@reach/router';
+import Page from 'components/page';
+import NotFound from 'containers/404';
+import entry from 'decorators/entry';
 import configureStore from './models/configure';
-import SSR from 'components/ssr';
-import App from './app';
 
-export default SSR(App);
-
-declare var IS_NODE;
-if (!IS_NODE) {
-  // 客户端渲染
-  const initial_state = (window as any).__INITIAL_STATE__;
-  const store = configureStore(initial_state);
-  Loadable.preloadReady().then(() => {
-    ReactDOM.hydrate(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      document.getElementById('root')
+class App extends React.Component {
+  render() {
+    return (
+      <Page>
+        <Router basepath="/studio">
+          {Routers.map(({ name, path, component: Component }) => {
+            return <Component key={name} path={path} />;
+          })}
+          <NotFound default />
+        </Router>
+      </Page>
     );
-  });
+  }
 }
+
+export default entry({
+  configureStore
+})(App);

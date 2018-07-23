@@ -4,7 +4,7 @@ import Loadable from 'react-loadable';
 import { Provider } from 'react-redux';
 import SSR from 'components/ssr';
 declare var IS_NODE;
-export function entry({ configureStore }) {
+export default function entry({ configureStore }) {
   return App => {
     if (!IS_NODE) {
       // 客户端渲染
@@ -19,6 +19,6 @@ export function entry({ configureStore }) {
         );
       });
     }
-    return;
+    return SSR(App);
   };
 }
