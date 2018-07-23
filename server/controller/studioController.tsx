@@ -1,5 +1,5 @@
 import { isRedirect } from '@reach/router';
-import configureStore from 'entry/main/models/configure';
+import configureStore from 'entry/studio/models/configure';
 import getPage from '../lib/getPage';
 import App from '../public/main';
 const render = {

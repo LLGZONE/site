@@ -4,7 +4,7 @@ const router = new Router();
 import api from '../constants/api';
 import userController from '../controller/userController';
 import articleController from '../controller/articleController';
-import renderController from '../controller/renderController';
+import studioController from '../controller/studioController';
 import indexController from '../controller/indexController';
 import exceptContoller from '../controller/exceptContoller';
 
@@ -18,7 +18,7 @@ router.get(api.article_list, articleController.article_list);
 
 // 前端路由
 router.get('/', indexController.index);
-router.get('/studio/:path*', renderController.main);
+router.get('/studio/:path*', studioController.main);
 router.get('*', exceptContoller.index);
 router.stack.forEach(element => {
   console.log(element.path, element.methods);
