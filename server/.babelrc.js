@@ -19,7 +19,8 @@ module.exports = {
       {
         cwd: 'babelrc',
         alias: {
-          locales: '../client/locales'
+          locales: '../client/locales',
+          entry: '../client/entry'
         },
         extensions: ['.ts', '.tsx', '.js', '.jsx']
       }

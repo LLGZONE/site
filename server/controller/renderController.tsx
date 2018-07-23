@@ -1,13 +1,8 @@
-import ReactServerDOM from 'react-dom/server';
 import { isRedirect } from '@reach/router';
-import Loadable from 'react-loadable';
-import { getBundles } from 'react-loadable/webpack';
-import { getScript, getStyle } from '../lib/bundle';
-import configureStore from '../../client/entry/main/models/configure';
+import configureStore from 'entry/main/models/configure';
+import getPage from '../lib/getPage';
 import App from '../public/main';
-import stats from '../public/react-loadable.json';
-import * as React from 'react';
-export default {
+const render = {
   async main(ctx) {
     const store = configureStore({
       user_info: ctx.user_info,
@@ -16,37 +11,27 @@ export default {
         messages: ctx.messages
       }
     });
-    let modules = [];
-    let html = '';
+    const initial_state = store.getState();
     try {
-      html = ReactServerDOM.renderToString(
-        <Loadable.Capture report={moduleName => modules.push(moduleName)}>
-          <App url={ctx.url} store={store} />
-        </Loadable.Capture>
-      );
+      const { html, scripts, styles } = await getPage({
+        App,
+        store,
+        url: ctx.url
+      });
+      await ctx.render('home', {
+        html,
+        initial_state: JSON.stringify(initial_state),
+        scripts,
+        styles
+      });
     } catch (err) {
-      console.log('err:', err);
       if (isRedirect(err)) {
         ctx.redirect(err.uri);
       } else {
-        html = '';
+        ctx.throw(500, err.message);
       }
     }
-    let bundles = getBundles(stats, modules);
-    const styles = bundles
-      .filter(bundle => bundle && bundle.file.endsWith('.css'))
-      .map(bundle => getStyle(bundle.file))
-      .join('\n');
-    const scripts = bundles
-      .filter(bundle => bundle && bundle.file.endsWith('.js'))
-      .map(bundle => getScript(bundle.file))
-      .join('\n');
-    const initial_state = store.getState();
-    await ctx.render('home', {
-      html,
-      initial_state: JSON.stringify(initial_state),
-      scripts,
-      styles
-    });
   }
 };
+
+export default render;
