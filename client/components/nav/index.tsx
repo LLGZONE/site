@@ -7,6 +7,7 @@ import { Avatar } from 'antd';
 import { Link } from '@reach/router';
 import { Popover, message } from 'antd';
 import intl from 'react-intl-universal';
+import Cookies from 'js-cookie';
 import { Select } from 'antd';
 import Icon from 'ui/icon';
 import { connect } from 'react-redux';
@@ -31,8 +32,9 @@ class Nav extends React.Component<{
     );
   };
   changeLocale = value => {
-    const { update_locale } = this.props;
-    update_locale(value);
+    Cookies.set('locale', value);
+    Cookies.set('language', value);
+    location.reload();
   };
   render() {
     const { username, avatar } = this.props.user_info;
