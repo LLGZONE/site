@@ -13,6 +13,9 @@ const ssrConfig = merge(baseConfig, {
     libraryTarget: 'commonjs2'
   },
   plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
+    }),
     new cleanWebpackPlugin(outputDir),
     new webpack.DefinePlugin({
       IS_NODE: true
