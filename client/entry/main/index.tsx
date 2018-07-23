@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Loadable from 'react-loadable';
 import { Provider } from 'react-redux';
-import { ServerLocation } from '@reach/router';
 import configureStore from './models/configure';
+import SSR from 'components/ssr';
 import App from './app';
+
+export default SSR(App);
 
 declare var IS_NODE;
 if (!IS_NODE) {
@@ -20,18 +22,3 @@ if (!IS_NODE) {
     );
   });
 }
-class SSR extends React.Component<{
-  store: any;
-  url: string;
-}> {
-  render() {
-    return (
-      <Provider store={this.props.store}>
-        <ServerLocation url={this.props.url}>
-          <App />
-        </ServerLocation>
-      </Provider>
-    );
-  }
-}
-export default SSR;

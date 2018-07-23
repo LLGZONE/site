@@ -4,6 +4,9 @@ import { Router } from '@reach/router';
 import Page from 'components/page';
 import NotFound from 'containers/404';
 
+@entry({
+  ssr: true
+})
 export default class App extends React.Component {
   render() {
     return (
