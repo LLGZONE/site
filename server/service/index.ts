@@ -1,4 +1,3 @@
-export default {
-  user: require('./user'),
-  article: require('./article')
-};
+import user from './user';
+import article from './article';
+export { user, article };

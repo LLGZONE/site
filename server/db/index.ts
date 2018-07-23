@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import Sequelize from 'sequelize';
 import config from '../config';
+
 const client = new Sequelize(
   config.db.database,
   config.db.username,
