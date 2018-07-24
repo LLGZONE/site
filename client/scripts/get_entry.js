@@ -7,6 +7,6 @@ const pages = fs
 
 const entries = {};
 for (const entry of pages) {
-  entries[entry] = ['@babel/polyfill', `./entry/${entry}`];
+  entries[entry] = [`./entry/${entry}`];
 }
 module.exports = entries;

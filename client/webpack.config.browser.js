@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ExtractKeyPlugin = require('./plugins/extract-keys');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const webpack = require('webpack');
 const entry = require('./scripts/get_entry');
 module.exports = {
@@ -42,6 +43,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new ManifestPlugin(),
     new webpack.DefinePlugin({
       IS_NODE: false
     }),
