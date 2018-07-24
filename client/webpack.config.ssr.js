@@ -6,8 +6,6 @@ const cleanWebpackPlugin = require('clean-webpack-plugin');
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 const outputDir = path.resolve(__dirname, '../server/public');
 const ssrConfig = merge(baseConfig, {
-  mode: 'development',
-  devtool: 'source-map',
   output: {
     path: outputDir,
     libraryTarget: 'commonjs2'

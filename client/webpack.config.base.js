@@ -2,8 +2,16 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const entry = require('./scripts/get_entry');
 module.exports = {
+  mode: 'development',
+  devtool: 'source-map',
   entry,
   context: __dirname,
+  output: {
+    path: path.resolve(__dirname, '../dist/client'),
+    publicPath: '/',
+    filename: '[name].js',
+    chunkFilename: 'chunk.[name].js'
+  },
   module: {
     rules: [
       {
