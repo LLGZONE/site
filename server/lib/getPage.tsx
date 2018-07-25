@@ -3,11 +3,28 @@ import ReactServerDOM from 'react-dom/server';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import { getScript, getStyle } from '../lib/bundle';
-export default async function getPage({ store, url, App, page }) {
+export default async function getPage({
+  store,
+  url,
+  App,
+  page
+}: {
+  store?: object;
+  App?: any;
+  url: string;
+  page: string;
+}) {
   const stats = require('../public/buildClient/react-loadable.json');
   const manifest = require('../public/buildClient/manifest.json');
   const mainjs = getScript(manifest[`${page}.js`]);
   const maincss = getStyle(manifest[`${page}.css`]);
+  if (!App && !store) {
+    return {
+      html: '',
+      scripts: mainjs,
+      styles: maincss
+    };
+  }
   let modules = [];
   let html = ReactServerDOM.renderToString(
     <Loadable.Capture report={moduleName => modules.push(moduleName)}>
