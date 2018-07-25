@@ -1,5 +1,6 @@
 const baseConfig = require('./webpack.config.browser');
 const merge = require('webpack-merge');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 module.exports = merge(baseConfig, {
   mode: 'development',
   devtool: 'source-map',
@@ -10,5 +11,6 @@ module.exports = merge(baseConfig, {
     port: 4001,
     disableHostCheck: true,
     historyApiFallback: true
-  }
+  },
+  plugins: [new WriteFilePlugin()]
 });

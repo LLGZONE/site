@@ -4,7 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
-const outputDir = path.resolve(__dirname, '../server/public');
+const outputDir = path.resolve(__dirname, '../server/public/buildServer');
 const ssrConfig = merge(baseConfig, {
   output: {
     path: outputDir,

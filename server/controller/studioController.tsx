@@ -1,7 +1,7 @@
 import { isRedirect } from '@reach/router';
 import configureStore from 'entry/studio/models/configure';
 import getPage from '../lib/getPage';
-import App from '../public/studio';
+import App from '../public/buildServer/studio';
 const render = {
   async main(ctx) {
     const store = configureStore({

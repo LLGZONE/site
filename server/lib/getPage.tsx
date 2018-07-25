@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactServerDOM from 'react-dom/server';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
-import stats from '../public/react-loadable.json';
+import stats from '../public/buildServer/react-loadable.json';
 import { getScript, getStyle } from '../lib/bundle';
 export default async function getPage({ store, url, App }) {
   let modules = [];
