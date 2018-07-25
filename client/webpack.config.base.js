@@ -8,9 +8,9 @@ module.exports = {
   context: __dirname,
   output: {
     path: path.resolve(__dirname, '../dist/client'),
-    publicPath: '/',
+    publicPath: '/static/',
     filename: '[name].js',
-    chunkFilename: 'chunk.[name].js'
+    chunkFilename: 'chunk.[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -20,11 +20,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        loader: [MiniCssExtractPlugin.loader, 'css-loader']
-      },
-      {
-        test: /\.less$/,
+        test: /\.(less|css)$/,
         loader: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
       },
       {

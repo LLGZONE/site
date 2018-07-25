@@ -14,11 +14,11 @@ export default async function getPage({ store, url, App }) {
   let bundles = getBundles(stats, modules);
   const styles = bundles
     .filter(bundle => bundle && bundle.file.endsWith('.css'))
-    .map(bundle => getStyle(bundle.file))
+    .map(bundle => getStyle(bundle.publicPath))
     .join('\n');
   const scripts = bundles
     .filter(bundle => bundle && bundle.file.endsWith('.js'))
-    .map(bundle => getScript(bundle.file))
+    .map(bundle => getScript(bundle.publicPath))
     .join('\n');
   return {
     html,

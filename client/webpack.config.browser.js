@@ -7,7 +7,6 @@ const outputDir = path.resolve(__dirname, '../server/public/buildClient');
 module.exports = merge(baseConfig, {
   output: {
     path: outputDir,
-    publicPath: '/',
     filename: '[name].[chunkhash].js',
     chunkFilename: 'chunk.[name].[chunkhash].js'
   },

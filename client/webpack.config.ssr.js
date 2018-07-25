@@ -8,6 +8,7 @@ const outputDir = path.resolve(__dirname, '../server/public/buildServer');
 const ssrConfig = merge(baseConfig, {
   output: {
     path: outputDir,
+    filename: '[name].js',
     libraryTarget: 'commonjs2'
   },
   plugins: [
