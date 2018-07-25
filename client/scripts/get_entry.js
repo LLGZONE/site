@@ -7,6 +7,6 @@ const pages = fs
 
 const entries = {};
 for (const entry of pages) {
-  entries[entry] = [`./entry/${entry}`];
+  entries[entry] = ['regenerator-runtime/runtime', `./entry/${entry}`];
 }
 module.exports = entries;
