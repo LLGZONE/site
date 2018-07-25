@@ -19,7 +19,7 @@ const render = {
         url: ctx.url,
         page: 'studio'
       });
-      await ctx.render('home', {
+      await ctx.render('studio', {
         html,
         initial_state: JSON.stringify(initial_state),
         scripts,
