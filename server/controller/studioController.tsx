@@ -16,7 +16,8 @@ const render = {
       const { html, scripts, styles } = await getPage({
         App,
         store,
-        url: ctx.url
+        url: ctx.url,
+        page: 'studio'
       });
       await ctx.render('home', {
         html,

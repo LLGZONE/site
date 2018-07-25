@@ -3,8 +3,11 @@ import ReactServerDOM from 'react-dom/server';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import { getScript, getStyle } from '../lib/bundle';
-export default async function getPage({ store, url, App }) {
+export default async function getPage({ store, url, App, page }) {
   const stats = require('../public/buildClient/react-loadable.json');
+  const manifest = require('../public/buildClient/manifest.json');
+  const mainjs = getScript(manifest[`${page}.js`]);
+  const maincss = getStyle(manifest[`${page}.css`]);
   let modules = [];
   let html = ReactServerDOM.renderToString(
     <Loadable.Capture report={moduleName => modules.push(moduleName)}>
@@ -15,10 +18,12 @@ export default async function getPage({ store, url, App }) {
   const styles = bundles
     .filter(bundle => bundle && bundle.file.endsWith('.css'))
     .map(bundle => getStyle(bundle.publicPath))
+    .concat(maincss)
     .join('\n');
   const scripts = bundles
     .filter(bundle => bundle && bundle.file.endsWith('.js'))
     .map(bundle => getScript(bundle.publicPath))
+    .concat(mainjs)
     .join('\n');
   return {
     html,

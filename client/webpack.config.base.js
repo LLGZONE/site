@@ -1,5 +1,6 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const entry = require('./scripts/get_entry');
 module.exports = {
   mode: 'development',
@@ -21,7 +22,10 @@ module.exports = {
       },
       {
         test: /\.(less|css)$/,
-        loader: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader']
+        })
       },
       {
         test: /\.md$/,
@@ -38,9 +42,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash].css',
-      chunkFilename: 'chunk.[name].[chunkhash].css'
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      allChunks: true
     })
   ],
   resolve: {
