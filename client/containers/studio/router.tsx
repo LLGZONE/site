@@ -6,14 +6,14 @@ export default [
     name: 'post',
     path: Path.post,
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "post" */ './post')
+      loader: () => import('./post')
     })
   },
   {
     name: 'settings',
     path: Path.settings,
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "settings" */ './setting')
+      loader: () => import('./setting')
     })
   }
 ];

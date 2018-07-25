@@ -14,6 +14,9 @@ module.exports = merge(baseConfig, {
     new webpack.DefinePlugin({
       IS_NODE: false
     }),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
+    }),
     new ReactLoadablePlugin({
       filename: path.resolve(outputDir, 'react-loadable.json')
     })

@@ -7,8 +7,7 @@ export default [
     name: 'signin',
     path: Path.signin,
     component: Loadable({
-      loader: () =>
-        import(/* webpackChunkName: "signin" */ 'containers/signin'),
+      loader: () => import('containers/signin'),
       loading: Loading
     })
   },
@@ -16,8 +15,7 @@ export default [
     name: 'signup',
     path: Path.signup,
     component: Loadable({
-      loader: () =>
-        import(/* webpackChunkName: "signup" */ 'containers/signup'),
+      loader: () => import('containers/signup'),
       loading: Loading
     })
   },
@@ -25,7 +23,7 @@ export default [
     name: 'feed',
     path: Path.feed,
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "feed" */ 'containers/feed'),
+      loader: () => import('containers/feed'),
       loading: Loading
     })
   },
@@ -33,7 +31,7 @@ export default [
     name: 'home',
     path: Path.home,
     component: Loadable({
-      loader: () => import(/* webpackChunkName: "feed" */ 'containers/home'),
+      loader: () => import('containers/home'),
       loading: Loading
     })
   },
@@ -41,8 +39,7 @@ export default [
     name: 'detail',
     path: '/detail',
     component: Loadable({
-      loader: () =>
-        import(/* webpackChunkName: "detail" */ 'containers/detail'),
+      loader: () => import('containers/detail'),
       loading: Loading
     })
   },
@@ -50,8 +47,7 @@ export default [
     name: 'studio',
     path: `${Path.studio}/*`,
     component: Loadable({
-      loader: () =>
-        import(/* webpackChunkName: "studio" */ 'containers/studio'),
+      loader: () => import('containers/studio'),
       loading: Loading
     })
   }
