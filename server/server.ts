@@ -79,7 +79,9 @@ app.use(router.routes()).use(router.allowedMethods());
 
 export async function startServer() {
   await Loadable.preloadAll();
-  app.listen(config.server.port || 3333, () => {
-    console.log('start server at port: ', config.server.port);
+  (app as any).instance.waitUntilValid(() => {
+    app.listen(config.server.port || 3333, () => {
+      console.log('start server at port: ', config.server.port);
+    });
   });
 }

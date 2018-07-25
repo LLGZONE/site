@@ -4,13 +4,13 @@ import webpackConfig from '../../client/webpack.config.dev';
 export default app => {
   if (app.env === 'development') {
     const compiler = webpack(webpackConfig);
-    app.use(
-      webpackDevMiddleare(compiler, {
-        publicPath: '/',
-        watchOptions: {
-          poll: 1000
-        }
-      })
-    );
+    const instance = webpackDevMiddleare(compiler, {
+      publicPath: '/',
+      watchOptions: {
+        poll: 1000
+      }
+    });
+    app.use(instance);
+    app.instance = instance;
   }
 };
