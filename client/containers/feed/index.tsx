@@ -3,24 +3,17 @@ import { Rate } from 'antd';
 import * as Path from 'constants/path';
 import { Link, navigate } from '@reach/router';
 import LoadMore from 'ui/loadmore';
+import { connect } from 'react-redux';
 import Layout from 'components/layout';
 import http from 'lib/http';
-import LazyLoad from 'react-lazyload';
+//import LazyLoad from 'react-lazyload';
 import * as URL from 'constants/api/topfeed';
 import './index.less';
 import channels from './channel';
 
-class Feed extends React.Component<
-  {},
-  {
-    loading: boolean;
-    article_list: any[];
-  }
-> {
-  state = {
-    loading: true,
-    article_list: []
-  };
+class Feed extends React.Component<{
+  initial_feed: [any];
+}> {
   fetchData = async (cursor: number) => {
     const result = await http<any>({
       url: URL.article_list,
@@ -45,14 +38,13 @@ class Feed extends React.Component<
     return article_list.map(item => (
       <div key={item.id} onClick={() => navigate(`/a/${item.id}`)}>
         <div key={item.id} className="article-item">
-          <LazyLoad>
-            <img
-              className="article-poster"
-              src={item.images.large}
-              width={115}
-              height={172}
-            />
-          </LazyLoad>
+          <img
+            className="article-poster"
+            src={item.images.large}
+            width={115}
+            height={172}
+          />
+
           <div className="article-detail">
             <div className="article-title">{item.title}</div>
             <div className="article-rate">
@@ -68,11 +60,21 @@ class Feed extends React.Component<
     return (
       <Layout className="feed-container">
         <div className="feed-main-container">
-          <LoadMore fetch_data={this.fetchData}>{this.renderList}</LoadMore>
+          <LoadMore
+            fetch_data={this.fetchData}
+            initial_list={this.props.initial_feed}
+          >
+            {this.renderList}
+          </LoadMore>
         </div>
       </Layout>
     );
   }
 }
 
-export default Feed;
+const mapState = (state: any) => {
+  return {
+    initial_feed: state.feed
+  };
+};
+export default connect(mapState)(Feed);

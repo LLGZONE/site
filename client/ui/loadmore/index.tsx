@@ -16,7 +16,7 @@ export default class LoadMore extends React.Component<
     children: (data_list: Item[]) => React.ReactNode;
     fetch_data: (cursor: number) => Promise<ResponseProps>;
     placeholder?: React.ReactNode;
-    defaultValue?: any[];
+    initial_list?: any[];
   },
   {
     data_list: any[];
@@ -29,7 +29,7 @@ export default class LoadMore extends React.Component<
   constructor(props) {
     super(props);
     this.state = {
-      data_list: props.defaultValue || [],
+      data_list: props.initial_list || [],
       is_loading: false,
       has_more: true,
       cursor: 0
