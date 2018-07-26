@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, '../dist/client'),
     publicPath: '/static/',
     filename: '[name].js',
-    chunkFilename: 'chunk.[name].[chunkhash].js'
+    chunkFilename: 'chunk.[name].js'
   },
   module: {
     rules: [

@@ -8,8 +8,8 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 module.exports = merge(baseConfig, {
   output: {
     path: outputDir,
-    filename: '[name].[chunkhash].js',
-    chunkFilename: 'chunk.[name].[chunkhash].js'
+    filename: '[name].js',
+    chunkFilename: 'chunk.[name].js'
   },
   plugins: [
     new ManifestPlugin(),

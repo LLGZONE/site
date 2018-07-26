@@ -74,7 +74,7 @@ class Nav extends React.Component<{
     return (
       <div className="nav-container">
         <div className="nav-main">
-          <Link className="logo" to={Path.feed}>
+          <Link className="logo" to={'/studio/feed'}>
             <Icon type="quora" />
             <div className="logo-name">{intl.get('logo_name')}</div>
           </Link>

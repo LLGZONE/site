@@ -4,8 +4,8 @@ const baseConfig = require('./webpack.config.browser');
 module.exports = merge(baseConfig, {
   mode: 'production',
   output: {
-    filename: '[name]-[chunkhash:8].js',
-    chunkFilename: '[name]-[chunkhash:8].js'
+    filename: '[name].[chunkhash].js',
+    chunkFilename: 'chunk.[name].[chunkhash].js'
   },
   plugins: [new cleanWebpackPlugin('dist/client')]
 });
