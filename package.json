@@ -9,9 +9,9 @@
   },
   "scripts": {
     "precommit": "lint-staged && npm run lint",
-    "start": "babel-node server/demo.ts --extensions '.ts,.tsx'",
+    "start:dev": "run-p dev:client ssr:client",
     "build": "babel client --ignore src/**/__tests__ --out-dir dist --extensions '.ts,.tsx'",
-    "dev:server": "npm run clean:client && BABEL_ENV=server NODE_ENV=development nodemon  server/app.ts --exec babel-node  --extensions '.ts,.tsx'",
+    "dev:server": "BABEL_ENV=server NODE_ENV=development nodemon  server/app.ts --exec babel-node  --extensions '.ts,.tsx'",
     "build:server": "BABEL_ENV=server NODE_ENV=production babel server -d dist/server",
     "dev:client": "BABEL_ENV=client NODE_ENV=development webpack-dev-server --config client/webpack.config.dev.js",
     "build:client": "BABEL_ENV=client NODE_ENV=production webpack -p --config client/webpack.config.prod.js",

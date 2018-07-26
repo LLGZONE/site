@@ -11,7 +11,7 @@ const koaNunjucks = require('koa-nunjucks-2');
 import errorHandle from './middleware/errorHandler';
 import logger from './middleware/logger';
 import locale from './middleware/locale';
-import webpackPlugin from './plugin/webpack';
+//import webpackPlugin from './plugin/webpack';
 import router from './router';
 import Loadable from 'react-loadable';
 import { client, models } from './db';
@@ -36,7 +36,7 @@ app.use(async (ctx: any, next) => {
 app.use(errorHandle);
 app.use(logger);
 app.use(locale());
-webpackPlugin(app);
+//webpackPlugin(app);
 app.on('error', err => {
   console.log('app err:', err);
 });
@@ -79,9 +79,12 @@ app.use(router.routes()).use(router.allowedMethods());
 
 export async function startServer() {
   await Loadable.preloadAll();
-  (app as any).instance.waitUntilValid(() => {
-    app.listen(config.server.port || 3333, () => {
-      console.log('start server at port: ', config.server.port);
-    });
+  app.listen(config.server.port || 3333, () => {
+    console.log('start server at port: ', config.server.port);
   });
+  /*
+  (app as any).instance.waitUntilValid(() => {
+    
+  });
+  */
 }
