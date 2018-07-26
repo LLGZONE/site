@@ -36,7 +36,7 @@ class Feed extends React.Component<{
   }
   renderList(article_list) {
     return article_list.map(item => (
-      <div key={item.id} onClick={() => navigate(`/a/${item.id}`)}>
+      <div key={item.id} onClick={() => navigate(`/studio/detail`)}>
         <div key={item.id} className="article-item">
           <img
             className="article-poster"

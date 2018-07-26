@@ -59,7 +59,7 @@ class Nav extends React.Component<{
                 <Link to={'/studio/detail'} className="tip-item">
                   {intl.get('i18n')}
                 </Link>
-                <Link to={'/studio/'} className="tip-item">
+                <Link to={'/studio/studio'} className="tip-item">
                   {intl.get('studio')}
                 </Link>
                 <div className="tip-item logout" onClick={this.logout}>
