@@ -1,7 +1,6 @@
 import React from 'react';
 import * as URL from 'constants/api/topfeed';
 import http from 'lib/http';
-import * as Path from 'constants/path';
 import { Avatar } from 'antd';
 //import Avatar from 'components/avatar';
 import { Link } from '@reach/router';
@@ -57,7 +56,10 @@ class Nav extends React.Component<{
           <Popover
             content={
               <div className="account-tip">
-                <Link to={Path.studio} className="tip-item">
+                <Link to={'/studio/detail'} className="tip-item">
+                  {intl.get('i18n')}
+                </Link>
+                <Link to={'/studio/'} className="tip-item">
                   {intl.get('studio')}
                 </Link>
                 <div className="tip-item logout" onClick={this.logout}>
