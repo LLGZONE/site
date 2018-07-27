@@ -15,5 +15,6 @@ module.exports = {
   redis: {
     host: 'http://127.0.0.1',
     port: 6379
-  }
+  },
+  csrf_salt: 'topfeed salt'
 };

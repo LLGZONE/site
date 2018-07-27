@@ -11,11 +11,13 @@ const koaNunjucks = require('koa-nunjucks-2');
 import errorHandle from './middleware/errorHandler';
 import logger from './middleware/logger';
 import locale from './middleware/locale';
+import csrf from './middleware/csrf';
 //import webpackPlugin from './plugin/webpack';
 import router from './router';
 import Loadable from 'react-loadable';
 import { client, models } from './db';
 import config from './config';
+import csrf_check from './middleware/csrf_check';
 const app = new Core();
 
 app.use(
@@ -30,12 +32,23 @@ app.use(
 
 app.use(async (ctx: any, next) => {
   ctx.config = config;
+  (app as any).config = config;
   await next();
 });
 // 注册中间件
 app.use(errorHandle);
 app.use(logger);
 app.use(locale());
+app.use(
+  csrf({
+    salt: config.csrf_salt
+  })
+);
+app.use(
+  csrf_check({
+    salt: config.csrf_salt
+  })
+);
 //webpackPlugin(app);
 app.on('error', err => {
   console.log('app err:', err);
