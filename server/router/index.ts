@@ -6,8 +6,8 @@ import userController from '../controller/userController';
 import articleController from '../controller/articleController';
 import studioController from '../controller/studioController';
 import indexController from '../controller/indexController';
-import exceptContoller from '../controller/exceptContoller';
 import aboutController from '../controller/aboutController';
+import errorController from '../controller/errorController';
 
 // api接口
 router.get(api.user_info, userController.user_info);
@@ -21,7 +21,7 @@ router.get(api.article_list, articleController.article_list);
 router.get('/', indexController.index);
 router.get('/studio/:path*', studioController.main);
 router.get('/about', aboutController.main);
-router.get('*', exceptContoller.index);
+router.get('/error', errorController.main);
 router.stack.forEach(element => {
   console.log(element.path, element.methods);
 });
