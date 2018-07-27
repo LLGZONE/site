@@ -36,8 +36,8 @@ app.use(async (ctx: any, next) => {
   await next();
 });
 // 注册中间件
-app.use(errorHandle);
-app.use(logger);
+app.use(errorHandle());
+app.use(logger());
 app.use(locale());
 app.use(
   csrf({
