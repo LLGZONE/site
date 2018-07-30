@@ -20,14 +20,6 @@ export default [
     })
   },
   {
-    name: 'feed',
-    path: Path.feed,
-    component: Loadable({
-      loader: () => import('containers/feed'),
-      loading: Loading
-    })
-  },
-  {
     name: 'home',
     path: Path.home,
     component: Loadable({

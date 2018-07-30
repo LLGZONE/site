@@ -12,14 +12,13 @@ class ArticleService extends Service {
     });
     return result;
   }
-  async getUserByLoginName(username) {
-    const user = await this.ctx.models.User.findOne({
-      where: {
-        username
-      },
-      raw: true
-    });
-    return user;
+  async article_item(item_id) {
+    const result = await {
+      title: 'good article',
+      content: 'this content is good',
+      item_id
+    };
+    return result;
   }
 }
 export default ArticleService;

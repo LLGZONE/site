@@ -76,7 +76,7 @@ class Nav extends React.Component<{
     return (
       <div className="nav-container">
         <div className="nav-main">
-          <Link className="logo" to={'/studio/feed'}>
+          <Link className="logo" to={'/feed'}>
             <Icon type="quora" />
             <div className="logo-name">{intl.get('logo_name')}</div>
           </Link>
@@ -102,10 +102,13 @@ const mapState = (state: any) => {
     locale: state.locale.locale
   };
 };
-const mapDispatch = (state: any) => {
+const mapDispatch = ({
+  user_info: { update: update_userinfo },
+  locale: { update_locale }
+}) => {
   return {
-    update_userinfo: state.user_info.update,
-    update_locale: state.locale.update_locale
+    update_userinfo,
+    update_locale
   };
 };
 
