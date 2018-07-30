@@ -5,7 +5,7 @@ import Layout from 'components/layout';
 import intl from 'react-intl-universal';
 import './index.less';
 
-export default class Detail extends React.Component<{
+export default class I18n extends React.Component<{
   item_id: string;
 }> {
   state = {

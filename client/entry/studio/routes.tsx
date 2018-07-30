@@ -36,10 +36,10 @@ export default [
     })
   },
   {
-    name: 'detail',
-    path: '/detail',
+    name: 'i18n',
+    path: '/i18n',
     component: Loadable({
-      loader: () => import('containers/detail'),
+      loader: () => import('containers/i18n'),
       loading: Loading
     })
   },
