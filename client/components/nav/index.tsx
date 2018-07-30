@@ -42,10 +42,10 @@ class Nav extends React.Component<{
     if (!username) {
       account_dom = (
         <div className="account-container">
-          <a className="signin" href="/signin">
+          <a className="signin" href="/studio/signin">
             {intl.get('signin')}
           </a>
-          <a className="signup" href="/signup">
+          <a className="signup" href="/studio/signup">
             {intl.get('signup')}
           </a>
         </div>
@@ -56,7 +56,7 @@ class Nav extends React.Component<{
           <Popover
             content={
               <div className="account-tip">
-                <Link to={'/studio/detail'} className="tip-item">
+                <Link to={'/studio/i18n'} className="tip-item">
                   {intl.get('i18n')}
                 </Link>
                 <Link to={'/studio/studio'} className="tip-item">
