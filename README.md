@@ -61,3 +61,7 @@ $ npm run dev:server
 - [ ] ab测方案 （前端ab测、node层ab测、ssr下的ab测）
 - [ ] 文案翻译及管理
 - [ ] 前后端鉴权处理
+
+### npm scripts说明
++ npm client:dev 前端代码生成包括client:bundle前端代码打包和client:ssr前端ssr代码打包
++ npm server:dev node代码启动，需要等待client:dev启动后启动
