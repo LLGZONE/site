@@ -1,6 +1,5 @@
 module.exports = api => {
   const env = api.env();
-  console.log('env:', env);
   return {
     presets: [
       [

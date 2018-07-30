@@ -12,7 +12,6 @@ import errorHandle from './middleware/errorHandler';
 import logger from './middleware/logger';
 import locale from './middleware/locale';
 import csrf from './middleware/csrf';
-//import webpackPlugin from './plugin/webpack';
 import router from './router';
 import Loadable from 'react-loadable';
 import { client, models } from './db';
@@ -49,7 +48,6 @@ app.use(
     salt: config.csrf_salt
   })
 );
-//webpackPlugin(app);
 app.on('error', err => {
   console.log('app err:', err);
 });
@@ -95,9 +93,4 @@ export async function startServer() {
   app.listen(config.server.port || 3333, () => {
     console.log('start server at port: ', config.server.port);
   });
-  /*
-  (app as any).instance.waitUntilValid(() => {
-    
-  });
-  */
 }

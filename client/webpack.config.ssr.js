@@ -13,7 +13,7 @@ const ssrConfig = merge(baseConfig, {
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
-    }),
+    }), // ssr 情况下禁止前端拆包
     new cleanWebpackPlugin(outputDir),
     new webpack.DefinePlugin({
       IS_NODE: true
