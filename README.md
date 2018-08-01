@@ -2,13 +2,13 @@
 最好的React技术栈
 + Typescript（静态检查)
 + React (View)
-+ @reach/router (路由)
++ @reach/router (分形路由支持，更简洁的API)
 + Immer （不可变数据，处理复杂对象的更新）
 + Rematch （状态管理，更好的redux，less code，更好的async处理）
-+ SSR （首屏加速和SEO优化）
-+ React-intl && moment（国际化和本地化支持）
++ SSR + SPA + Code Splitting + Prefetch （极致的首屏加速和SEO优化）
++ React-intl-universe && moment（国际化和本地化支持）
 + Koa2 （路由和渲染）
-+ Webpack （打包工具）
++ Webpack4 （打包工具）
 + prettier (自动代码格式化，统一格式风格)
 + eslint&&tslint&&stylelint&&htmllint (语法检测)
 + husky (precomit hooks,只对提交到的代码进行处理)
@@ -33,22 +33,22 @@ $ mysql -uxxx ;create database site
 启动mysql和redis
 $ brew services start redis mysql
 $ cnpm install 
-$ npm run dev:client
-$ npm run dev:server
+$ npm run client:dev
+$ npm run server:dev
 ```
 ### Todo List
-- [x] 服务端渲染
-- [x] Code Splitting
+- [x] SSR + SPA + Code Splitting + Prefetch
 - [x] 请求同构
 - [x] Icon 自动化管理
 - [x] 货币日期时间本地化
 - [x] csrf&&xss防御
 - [ ] 提供view基本模板
+- [ ] 常见less/scss mixin支持
 - [ ] 日志集成
 - [ ] 代码规范检查(禁止不符合规范的代码提交，如中间件格式)
 - [ ] 前端性能监控 （首屏、图片加载、接口兜底等）
 - [ ] Node层性能监控（内存溢出检测和调试等）
-- [ ] 脚手架（提供自动添加路由、组件、容器、页面等级别代码生成，和调试工具）
+- [ ] cli支持（提供自动添加路由、组件、容器、页面等级别代码生成和boilerplate生成，和调试工具）
 - [ ] SPA下的复杂状态管理
 - [ ] mock方案
 - [ ] 接口统一管理方案
