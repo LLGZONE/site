@@ -1,5 +1,16 @@
 module.exports = api => {
   const env = api.env();
+  // 服务端渲染时不加载css
+  const importConfig =
+    env === 'client'
+      ? {
+          libraryName: 'antd',
+          libraryDirectory: 'es',
+          style: env === 'client' ? 'css' : false
+        }
+      : {
+          libraryName: 'antd'
+        };
   return {
     presets: [
       [
@@ -15,14 +26,7 @@ module.exports = api => {
       '@babel/typescript'
     ],
     plugins: [
-      [
-        'import',
-        {
-          libraryName: 'antd',
-          libraryDirectory: 'es',
-          style: 'css'
-        }
-      ],
+      ['import', importConfig],
       env === 'ssr'
         ? 'dynamic-import-node'
         : '@babel/plugin-syntax-dynamic-import',
