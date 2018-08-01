@@ -11,7 +11,6 @@ if (!IS_NODE) {
   axios.interceptors.response.use(
     response => {
       const data = response.data;
-      console.log('response:', response);
       // 站内api
       if (typeof data.code !== 'undefined') {
         if (data.code !== 0) {

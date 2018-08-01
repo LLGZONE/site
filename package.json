@@ -12,7 +12,7 @@
     "client:dev": "run-p client:bundle-dev client:ssr-dev",
     "client:ssr-dev": "BABEL_ENV=ssr NODE_ENV=development webpack --watch --config client/webpack.config.ssr.js",
     "client:bundle-dev": "BABEL_ENV=client NODE_ENV=development webpack-dev-server --config client/webpack.config.dev.js",
-    "server:dev": "BABEL_ENV=server NODE_ENV=development babel-node server/app.ts  --extensions '.ts,.tsx'",
+    "server:dev": "BABEL_ENV=server NODE_ENV=development nodemon --exec babel-node server/app.ts  --extensions '.ts,.tsx'",
     "debug:client": "BABEL_ENV=client NODE_ENV=development node --inspect-brk ./node_modules/.bin/webpack-dev-server --config client/webpack.config.dev.js",
     "debug:server": "BABEL_ENV=server NODE_ENV=development babel-node --inspect-brk  server/app.ts --exec babel-node  --extensions '.ts,.tsx'",
     "deploy": "pm2 deploy ecosystem.config.js production",

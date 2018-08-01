@@ -4,14 +4,12 @@ import getPage from '../lib/getPage';
 import App from '../public/buildServer/studio';
 const render = {
   async main(ctx) {
-    const result = await ctx.service.article.article_list(0, 10);
     const store = configureStore({
       user_info: ctx.user_info,
       locale: {
         locale: ctx.locale,
         messages: ctx.messages
-      },
-      feed: result.subjects
+      }
     });
     const initial_state = store.getState();
     try {

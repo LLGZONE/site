@@ -10,7 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <Page>
-        <Router basepath="/studio">
+        <Router>
           {Routers.map(({ name, path, component: Component }) => {
             return <Component key={name} path={path} />;
           })}

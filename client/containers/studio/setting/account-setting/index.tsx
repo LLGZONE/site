@@ -48,7 +48,7 @@ class AccountSetting extends React.Component<{
                         }
                       }
                     });
-                    console.log('new_user:', result.user_info);
+
                     update_info(result.user_info);
                     setState({ visible: false });
                     message.success('信息修改成功');

@@ -1,11 +1,10 @@
 import Loadable from 'react-loadable';
 import Loading from 'components/loading';
-import * as Path from 'constants/path';
 
 export default [
   {
     name: 'signin',
-    path: Path.signin,
+    path: '/studio/signin',
     component: Loadable({
       loader: () => import('containers/signin'),
       loading: Loading
@@ -13,23 +12,15 @@ export default [
   },
   {
     name: 'signup',
-    path: Path.signup,
+    path: '/studio/signup',
     component: Loadable({
       loader: () => import('containers/signup'),
       loading: Loading
     })
   },
   {
-    name: 'home',
-    path: Path.home,
-    component: Loadable({
-      loader: () => import('containers/home'),
-      loading: Loading
-    })
-  },
-  {
     name: 'i18n',
-    path: '/i18n',
+    path: '/studio/i18n',
     component: Loadable({
       loader: () => import('containers/i18n'),
       loading: Loading
@@ -37,7 +28,7 @@ export default [
   },
   {
     name: 'studio',
-    path: `${Path.studio}/*`,
+    path: '/*',
     component: Loadable({
       loader: () => import('containers/studio'),
       loading: Loading
