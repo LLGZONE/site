@@ -17,6 +17,7 @@ class UserService extends Service {
       plain: true
     });
     delete new_user.password;
+    this.ctx.session.user = new_user;
     return new_user;
   }
   async getUserByLoginName(username, showPassword = false) {

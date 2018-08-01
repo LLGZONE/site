@@ -11,7 +11,7 @@
   <div id="root">
   </div>
   <script>
-       window.__INITIAL_STATE__= {{initial_state|safe}}
+       window.__INITIAL_STATE__= JSON.parse({{initial_state|xss}})
   </script>
   {{scripts|safe}}
 </body>

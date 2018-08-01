@@ -7,7 +7,9 @@ import path from 'path';
 import cors from '@koa/cors';
 import session from 'koa-session';
 import redisStore from 'koa-redis';
-const koaNunjucks = require('koa-nunjucks-2');
+import koaNunjucks from 'koa-nunjucks-2';
+import stringify from 'js-stringify';
+
 import errorHandle from './middleware/errorHandler';
 import logger from './middleware/logger';
 import locale from './middleware/locale';
@@ -23,8 +25,15 @@ app.use(
   koaNunjucks({
     ext: 'html',
     path: path.join(__dirname, 'view'),
+    configureEnvironment: env => {
+      env.addFilter('xss', str => {
+        const safe = env.filters.safe;
+        return safe(stringify(str));
+      });
+    },
     nunjucksConfig: {
-      trimBlocks: true
+      trimBlocks: true,
+      stringify
     }
   })
 );
