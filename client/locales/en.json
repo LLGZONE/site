@@ -6,6 +6,8 @@
   "logo_name": "You know",
   "login_success": "login success",
   "login_fail": "login fail",
+  "write_blog": "write blog",
+  "account_setting": "account setting",
   "SIMPLE": "Simple Sentence",
   "i18n": "internationalization",
   "HELLO": "Hello, {name}. Welcome to {where}!",

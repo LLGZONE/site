@@ -28,7 +28,7 @@ export default [
   },
   {
     name: 'studio',
-    path: '/*',
+    path: '/studio/*',
     component: Loadable({
       loader: () => import('containers/studio'),
       loading: Loading

@@ -8,7 +8,7 @@ import { Popover, message } from 'antd';
 import intl from 'react-intl-universal';
 import Cookies from 'js-cookie';
 import { Select } from 'antd';
-import Icon from 'ui/icon';
+// import Icon from 'ui/icon';
 import { connect } from 'react-redux';
 import './index.less';
 
@@ -77,7 +77,7 @@ class Nav extends React.Component<{
       <div className="nav-container">
         <div className="nav-main">
           <Link className="logo" to={'/feed'}>
-            <Icon type="quora" />
+            {/* <Icon type="quora" /> */}
             <div className="logo-name">{intl.get('logo_name')}</div>
           </Link>
           <div className="nav-right">

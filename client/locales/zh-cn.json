@@ -8,6 +8,8 @@
   "login_fail": "登录失败",
   "SIMPLE": "简单的句子",
   "i18n": "国际化",
+  "write_blog": "写博客",
+  "account_setting": "信息设置",
   "HELLO": "你好, {name}。欢迎来到{where}!",
   "TIP": "这是<span style='color:red'>HTML</span>",
   "TIP_VAR": "这是<span style='color:red'>{message}</span>",

@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from 'components/layout';
 import { Menu } from 'antd';
 import { Link, Router } from '@reach/router';
+import intl from 'react-intl-universal';
 import Post from './post';
 import Settings from './setting';
 import './index.less';
@@ -14,10 +15,12 @@ class Studio extends React.Component {
           <div className="studio-menu">
             <Menu>
               <Menu.Item>
-                <Link to={'post'}>写博客</Link>
+                <Link to={'/studio/post'}>{intl.get('write_blog')}</Link>
               </Menu.Item>
               <Menu.Item>
-                <Link to={'settings'}>个人设置</Link>
+                <Link to={'/studio/settings'}>
+                  {intl.get('account_setting')}
+                </Link>
               </Menu.Item>
             </Menu>
           </div>
