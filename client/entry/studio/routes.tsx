@@ -6,7 +6,7 @@ export default [
     name: 'signin',
     path: '/studio/signin',
     component: Loadable({
-      loader: () => import('containers/signin'),
+      loader: () => import(/* webpackPrefetch: true */ 'containers/signin'),
       loading: Loading
     })
   },
@@ -14,7 +14,7 @@ export default [
     name: 'signup',
     path: '/studio/signup',
     component: Loadable({
-      loader: () => import('containers/signup'),
+      loader: () => import(/* webpackPrefetch: true */ 'containers/signup'),
       loading: Loading
     })
   },
@@ -22,7 +22,7 @@ export default [
     name: 'i18n',
     path: '/studio/i18n',
     component: Loadable({
-      loader: () => import('containers/i18n'),
+      loader: () => import(/* webpackPrefetch: true */ 'containers/i18n'),
       loading: Loading
     })
   },
@@ -30,7 +30,7 @@ export default [
     name: 'studio',
     path: '/studio/*',
     component: Loadable({
-      loader: () => import('containers/studio'),
+      loader: () => import(/* webpackPrefetch: true */ 'containers/studio'),
       loading: Loading
     })
   }

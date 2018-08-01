@@ -6,7 +6,7 @@ export default [
     name: 'feed',
     path: '/feed',
     component: Loadable({
-      loader: () => import('containers/feed'),
+      loader: () => import(/* webpackPrefetch: true */ 'containers/feed'),
       loading: Loading
     })
   },
@@ -14,7 +14,7 @@ export default [
     name: 'detail',
     path: '/a/:item_id',
     component: Loadable({
-      loader: () => import('containers/detail'),
+      loader: () => import(/* webpackPrefetch: true */ 'containers/detail'),
       loading: Loading
     })
   }

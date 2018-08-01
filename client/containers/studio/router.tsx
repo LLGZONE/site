@@ -6,14 +6,14 @@ export default [
     name: 'post',
     path: Path.post,
     component: Loadable({
-      loader: () => import('./post')
+      loader: () => import(/* webpackPrefetch: true */ './post')
     })
   },
   {
     name: 'settings',
     path: Path.settings,
     component: Loadable({
-      loader: () => import('./setting')
+      loader: () => import(/* webpackPrefetch: true */ './setting')
     })
   }
 ];
