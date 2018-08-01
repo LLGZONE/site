@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang={{user.language}}>
+<head>
+  {% include "./common_header.html" %}
+  {% block custom_header %}
+  {% endblock %}
+  {{styles|safe}}
+</head>
+<body>
+  {% block custom_content %}
+  <div id="root">
+    {{html| safe}}
+  </div>
+  {% endblock %}
+  <script>
+       window.__INITIAL_STATE__= JSON.parse({{initial_state|xss}})
+  </script>
+  {% block custom_script %}
+  {% endblock %}
+  {{scripts|safe}}
+</body>
+</html>

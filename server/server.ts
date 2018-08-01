@@ -91,6 +91,7 @@ app.use(async (ctx: any, next) => {
 // 挂载用户信息
 app.use(async (ctx: any, next) => {
   ctx.user_info = ctx.session.user || {};
+  ctx.state.user = ctx.user_info; // for template use
   await next();
 });
 
